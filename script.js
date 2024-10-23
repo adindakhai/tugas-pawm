@@ -91,6 +91,11 @@ function showMateri() {
     window.location.href = 'materials.html'; // Redirect to the materials page
 }
 
+// Fungsi untuk menampilkan halaman Question
+function showQuiz() {
+    window.location.href = 'question.html'; // Redirect to the materials page
+}
+
 // Fungsi untuk memuat materi yang dipilih
 function loadMateri() {
     const materi = document.getElementById('pilihMateri').value;
@@ -137,6 +142,63 @@ function loadMateri() {
 
     document.getElementById('materiContent').innerHTML = materiContent;
     loadSoal(materi);
+}
+
+function loadQuiz(subject) {
+    let quizContent = '';
+    
+    switch(subject) {
+        case 'matematika':
+            quizContent = `
+                <h3>Mathematics Quiz</h3>
+                <p>1. What is the derivative of f(x) = 3x²?</p>
+                <input type="radio" name="q1" value="A"> 6x<br>
+                <input type="radio" name="q1" value="B"> 3x<br>
+                <input type="radio" name="q1" value="C"> 6<br>
+                <input type="radio" name="q1" value="D"> x<br><br>
+                <p>2. What is the integral of f(x) = x?</p>
+                <input type="radio" name="q2" value="A"> x²/2<br>
+                <input type="radio" name="q2" value="B"> x<br>
+                <input type="radio" name="q2" value="C"> 1<br>
+                <input type="radio" name="q2" value="D"> x²<br><br>
+                <button onclick="cekJawaban()">Submit</button>
+            `;
+            break;
+        case 'fisika':
+            quizContent = `
+                <h3>Physics Quiz</h3>
+                <p>1. What is Newton's first law?</p>
+                <input type="radio" name="q1" value="A"> Inertia<br>
+                <input type="radio" name="q1" value="B"> Action-Reaction<br>
+                <input type="radio" name="q1" value="C"> Gravity<br>
+                <input type="radio" name="q1" value="D"> Mass<br><br>
+                <p>2. What is the SI unit of force?</p>
+                <input type="radio" name="q2" value="A"> Newton<br>
+                <input type="radio" name="q2" value="B"> Pascal<br>
+                <input type="radio" name="q2" value="C"> Joule<br>
+                <input type="radio" name="q2" value="D"> Watt<br><br>
+                <button onclick="cekJawaban()">Submit</button>
+            `;
+            break;
+        case 'kimia':
+            quizContent = `
+                <h3>Chemistry Quiz</h3>
+                <p>1. What is the chemical symbol for water?</p>
+                <input type="radio" name="q1" value="A"> H₂O<br>
+                <input type="radio" name="q1" value="B"> CO₂<br>
+                <input type="radio" name="q1" value="C"> O₂<br>
+                <input type="radio" name="q1" value="D"> N₂<br><br>
+                <p>2. What type of reaction occurs when a substance is burned?</p>
+                <input type="radio" name="q2" value="A"> Exothermic<br>
+                <input type="radio" name="q2" value="B"> Endothermic<br>
+                <input type="radio" name="q2" value="C"> Catalysis<br>
+                <input type="radio" name="q2" value="D"> Redox<br><br>
+                <button onclick="cekJawaban()">Submit</button>
+            `;
+            break;
+    }
+    
+    document.getElementById('quizContent').innerHTML = quizContent;
 }
 
 // Fungsi untuk memuat soal berdasarkan materi

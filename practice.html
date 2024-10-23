@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice - Learnbyheart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
+            <h1>Learnbyheart</h1>
+        </div>
+    </header>
+
+    <!-- Practice Questions Section -->
+    <section id="practice">
+        <h2>Select a Subject for Quizzes</h2>
+        <div class="subject-buttons">
+            <button onclick="loadQuiz('matematika')">
+                <img src="assets/calculator.png" alt="Mathematics Icon">Mathematics
+            </button>
+            <button onclick="loadQuiz('fisika')">
+                <img src="assets/gravity.png" alt="Physics Icon">Physics
+            </button>
+            <button onclick="loadQuiz('kimia')">
+                <img src="assets/periodic-table.png" alt="Chemistry Icon">Chemistry
+            </button>
+        </div>
+        <div id="quizContent"></div>
+    </section>
+
+    <footer>
+        <p>Learnbyheart © 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
