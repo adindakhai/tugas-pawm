@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materials - Learnbyheart</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"> <!-- Menetapkan karakter encoding dokumen menjadi UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mengatur agar tampilan sesuai dengan perangkat yang digunakan (responsive) -->
+    <title>Materials - Learnbyheart</title> <!-- Judul halaman yang akan ditampilkan di tab browser -->
+    <link rel="stylesheet" href="styles.css"> <!-- Menghubungkan dokumen CSS eksternal untuk styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> <!-- Menghubungkan font Poppins dari Google Fonts -->
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
-            <h1>Learnbyheart</h1>
+    <header> <!-- Bagian header halaman -->
+        <div class="logo-container"> <!-- Kontainer untuk logo -->
+            <img src="assets/heart.png" alt="Heart Icon" class="heart-icon"> <!-- Gambar logo (ikon hati) -->
+            <h1>Learnbyheart</h1> <!-- Judul aplikasi yang ditampilkan di header -->
         </div>
     </header>
 
     <!-- Materials Buttons Section -->
-    <section id="materials">
-        <h2>Select Your Subject</h2>
-        <div class="subject-buttons">
-            <button onclick="window.location.href='mathematics.html'">
-                <img src="assets/calculator.png" alt="Mathematics Icon">Mathematics
+    <section id="materials"> <!-- Bagian utama yang berisi tombol untuk memilih materi -->
+        <h2>Select Your Subject</h2> <!-- Judul section untuk memilih subjek materi -->
+        <div class="subject-buttons"> <!-- Kontainer untuk tombol-tombol subjek -->
+            <button onclick="window.location.href='mathematics.html'"> <!-- Tombol untuk subjek matematika, akan diarahkan ke halaman 'mathematics.html' saat diklik -->
+                <img src="assets/calculator.png" alt="Mathematics Icon">Mathematics <!-- Gambar ikon kalkulator untuk mewakili matematika -->
             </button>
-            <button onclick="window.location.href='chemistry.html'">
-                <img src="assets/periodic-table.png" alt="Chemistry Icon">Chemistry
+            <button onclick="window.location.href='chemistry.html'"> <!-- Tombol untuk subjek kimia, akan diarahkan ke halaman 'chemistry.html' -->
+                <img src="assets/periodic-table.png" alt="Chemistry Icon">Chemistry <!-- Gambar ikon tabel periodik untuk kimia -->
             </button>
-            <button onclick="window.location.href='physics.html'">
-                <img src="assets/gravity.png" alt="Physics Icon">Physics
+            <button onclick="window.location.href='physics.html'"> <!-- Tombol untuk subjek fisika, akan diarahkan ke halaman 'physics.html' -->
+                <img src="assets/gravity.png" alt="Physics Icon">Physics <!-- Gambar ikon gravitasi untuk fisika -->
             </button>
         </div>
     </section>
 
-    <footer>
-        <p>Learnbyheart © 2024</p>
+    <footer> <!-- Bagian footer halaman -->
+        <p>Learnbyheart © 2024</p> <!-- Informasi hak cipta di footer -->
+        
         <!-- Back to Home Button -->
-<div class="back-to-home">
-    <button onclick="window.location.href='index.html'">
-        <img src="assets/left-chevron.png" alt="Home Icon">Back to Home
-    </button>
-</div>
+        <div class="back-to-home"> <!-- Kontainer untuk tombol kembali ke halaman utama -->
+            <button onclick="window.location.href='index.html'"> <!-- Tombol kembali ke halaman 'index.html' -->
+                <img src="assets/left-chevron.png" alt="Home Icon">Back to Home <!-- Gambar ikon panah kiri untuk kembali ke halaman utama -->
+            </button>
+        </div>
     </footer>
 </body>
 </html>

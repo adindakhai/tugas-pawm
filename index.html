@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Deklarasi tipe dokumen HTML dan bahasa halaman, yaitu "en" (English) -->
 <head>
     <meta charset="UTF-8">
+    <!-- Menetapkan karakter encoding menjadi UTF-8 untuk mendukung berbagai karakter -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Menyediakan dukungan responsif, agar sesuai dengan layar perangkat mobile -->
+    
     <title>Learnbyheart</title>
+    <!-- Judul halaman yang akan ditampilkan pada tab browser -->
+
     <link rel="stylesheet" href="styles.css">
+    <!-- Menghubungkan halaman dengan file CSS eksternal untuk styling -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Menghubungkan dengan font "Poppins" dari Google Fonts -->
 </head>
+
 <body>
     <header>
+        <!-- Bagian header halaman yang biasanya berisi logo dan judul -->
         <div class="logo-container">
+            <!-- Kontainer untuk logo dan judul -->
             <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
+            <!-- Gambar logo (icon hati) yang diambil dari folder assets -->
+
             <h1>Learnbyheart</h1>
+            <!-- Judul website ditampilkan di sini -->
         </div>
     </header>
 
     <!-- Halaman Home (Lobby) -->
     <section id="home" class="active">
+        <!-- Section utama berisi konten halaman home, dengan ID "home" dan class "active" -->
+
         <div class="welcome-message">
+            <!-- Bagian pesan sambutan pengguna -->
             <h2>Welcome to Learnbyheart!</h2>
+            <!-- Teks sambutan utama -->
             <p>Learn with passion, practice with heart.</p>
+            <!-- Kalimat motivasi untuk pengguna -->
         </div>
+
         <div class="options">
+            <!-- Bagian untuk tombol opsi yang mengarahkan ke halaman lain -->
             <button onclick="showMateri()">
+                <!-- Tombol untuk menampilkan materi (dijalankan fungsi JavaScript "showMateri") -->
                 <img src="assets/book.png" alt="Materials Icon">Explore Materials
+                <!-- Gambar ikon buku diambil dari folder assets dan teks tombol -->
             </button>
+
             <button onclick="window.location.href='practice.html'">
+                <!-- Tombol untuk mengarahkan ke halaman latihan soal (practice.html) -->
                 <img src="assets/pencil.png" alt="Practice Icon">Practice Questions
+                <!-- Gambar ikon pensil diambil dari folder assets dan teks tombol -->
             </button>            
-            </button>
         </div>
     </section>
 
     <footer>
+        <!-- Bagian footer halaman, biasanya berisi copyright atau informasi tambahan -->
         <p>Learnbyheart © 2024</p>
+        <!-- Teks copyright -->
     </footer>
 
     <script src="script.js"></script>
+    <!-- Menghubungkan halaman ini dengan file JavaScript eksternal untuk fungsi interaktif -->
 </body>
 </html>
