@@ -91,6 +91,37 @@ section {
     margin: 40px 0;
 }
 
+.back-to-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.back-to-home button {
+    background-color: #000000;
+    color: #fce4ec;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-home button img {
+    width: 24px;
+    height: 24px;
+}
+
+.back-to-home button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+
 .subject-buttons button {
     background-color: #000000;
     color: #fce4ec;
