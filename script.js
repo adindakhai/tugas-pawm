@@ -86,6 +86,11 @@ function loadPelajaran() {
     loadMateri();
 }
 
+// Fungsi untuk menampilkan halaman Materi
+function showMateri() {
+    window.location.href = 'materials.html'; // Redirect to the materials page
+}
+
 // Fungsi untuk memuat materi yang dipilih
 function loadMateri() {
     const materi = document.getElementById('pilihMateri').value;
