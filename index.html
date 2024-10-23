@@ -3,64 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Lab TPB ITB</title>
+    <title>Learnbyheart</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Virtual Lab TPB ITB</h1>
-        <nav>
-            <ul>
-                <li><a href="#home" onclick="showHome()">Home</a></li>
-                <li><a href="#materi" onclick="showMateri()">Materi</a></li>
-                <li><a href="#latihan" onclick="showLatihan()">Latihan</a></li>
-            </ul>
-        </nav>
+        <div class="logo-container">
+            <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
+            <h1>Learnbyheart</h1>
+        </div>
     </header>
 
     <!-- Halaman Home (Lobby) -->
     <section id="home" class="active">
-        <h2>Selamat Datang di Virtual Lab TPB ITB</h2>
-        <p>Silakan pilih pelajaran untuk memulai.</p>
-        <button onclick="showMateri()">Mulai</button>
-    </section>
-
-    <!-- Halaman Materi (disembunyikan di awal) -->
-    <section id="materi" class="hidden">
-        <h2>Pilih Pelajaran</h2>
-        <select id="pilihPelajaran" onchange="loadPelajaran()">
-            <option value="">-- Pilih Pelajaran --</option>
-            <option value="matematika">Matematika</option>
-            <option value="fisika">Fisika</option>
-            <option value="kimia">Kimia</option>
-        </select>
-
-        <h3>Pilih Materi</h3>
-        <select id="pilihMateri" onchange="loadMateri()">
-            <!-- Opsi materi akan dimuat di sini -->
-        </select>
-
-        <div id="materiContent">
-            <!-- Materi akan dimuat di sini -->
+        <div class="welcome-message">
+            <h2>Welcome to Learnbyheart!</h2>
+            <p>Learn with passion, practice with heart.</p>
+        </div>
+        <div class="options">
+            <button onclick="showMateri()">
+                <img src="assets/book.png" alt="Materials Icon">Explore Materials
+            </button>
+            <button onclick="showLatihan()">
+                <img src="assets/pencil.png" alt="Practice Icon">Practice Questions
+            </button>
         </div>
     </section>
 
-    <!-- Halaman Latihan (disembunyikan di awal) -->
-    <section id="latihan" class="hidden">
-        <h2>Latihan Soal</h2>
-        <form id="quiz">
-            <!-- Soal akan dimuat di sini berdasarkan materi -->
-        </form>
-        <button type="button" onclick="cekJawaban()">Submit</button>
-    </section>
-
     <footer>
-        <button onclick="gantiTema('dark')">Tema Gelap</button>
-        <button onclick="gantiTema('light')">Tema Terang</button>
-        <button onclick="tampilkanProgress()">Lihat Progress Saya</button>
-        <p>Virtual Lab TPB ITB © 2024</p>
+        <p>Learnbyheart © 2024</p>
     </footer>
 
     <script src="script.js"></script>

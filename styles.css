@@ -1,49 +1,142 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styling */
+html, body {
+    height: 100%; /* Ensure body and html take full height */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec; /* Soft Pink Background */
+    color: #333; /* Dark Text */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Flexbox for body */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #000000; /* Black header */
+    color: #fce4ec; /* Soft pink text */
+    padding: 30px;
 }
 
-nav ul {
-    list-style-type: none;
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.logo-container h1 {
+    font-size: 3rem;
+    margin-left: 15px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.heart-icon {
+    width: 80px;
+    height: 80px;
 }
 
 section {
+    flex-grow: 1; /* Make the section expand to fill the available space */
+    margin: 40px auto;
     padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 5px;
 }
 
+.welcome-message h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.welcome-message p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.options button {
+    background-color: #000000;
+    color: #fce4ec;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+/* Sticky Footer */
 footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+    background-color: #000000;
+    color: #fce4ec;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: auto; /* Pushes footer to the bottom */
+    width: 100%;
+    position: relative;
 }
 
-.hidden {
-    display: none;
+/* For icons and creative elements */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.active {
-    display: block;
+button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Dark theme styling */
+body.dark {
+    background-color: #2c3e50; /* Dark background */
+    color: #fce4ec; /* Soft pink text */
+}
+
+header.dark {
+    background-color: #fce4ec; /* Soft pink header */
+    color: black; /* Black text */
+}
+
+nav ul li a.dark {
+    color: black; /* Black links */
+}
+
+section.dark {
+    background-color: #000000; /* Black content background */
+    color: #fce4ec; /* Soft pink text */
+}
+
+footer.dark {
+    background-color: #fce4ec; /* Soft pink footer */
+    color: black; /* Black text */
+}
+
+button.dark {
+    background-color: #fce4ec; /* Soft pink button */
+    color: black; /* Black text */
+}
+
+button.dark:hover {
+    background-color: #000000; /* Black button hover */
+    color: #fce4ec; /* Soft pink text on hover */
 }
