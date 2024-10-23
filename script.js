@@ -93,55 +93,7 @@ function showMateri() {
 
 // Fungsi untuk menampilkan halaman Question
 function showQuiz() {
-    window.location.href = 'question.html'; // Redirect to the materials page
-}
-
-// Fungsi untuk memuat materi yang dipilih
-function loadMateri() {
-    const materi = document.getElementById('pilihMateri').value;
-    let materiContent = '';
-    
-    switch(materi) {
-        case 'derivatif':
-            materiContent = `
-                <h3>Materi Matematika: Derivatif</h3>
-                <p>Penjelasan dasar tentang turunan dan aturan derivatif.</p>
-            `;
-            break;
-        case 'integral':
-            materiContent = `
-                <h3>Materi Matematika: Integral</h3>
-                <p>Penjelasan dasar tentang integral dan konsep-konsep terkait.</p>
-            `;
-            break;
-        case 'hukumNewton':
-            materiContent = `
-                <h3>Materi Fisika: Hukum Newton</h3>
-                <p>Penjelasan tentang Hukum Newton dan aplikasinya.</p>
-            `;
-            break;
-        case 'gerakParabola':
-            materiContent = `
-                <h3>Materi Fisika: Gerak Parabola</h3>
-                <p>Penjelasan tentang gerak parabola dan contoh aplikasinya.</p>
-            `;
-            break;
-        case 'reaksiKimia':
-            materiContent = `
-                <h3>Materi Kimia: Reaksi Kimia</h3>
-                <p>Penjelasan tentang reaksi kimia dan perubahan materi.</p>
-            `;
-            break;
-        case 'ikatanKimia':
-            materiContent = `
-                <h3>Materi Kimia: Ikatan Kimia</h3>
-                <p>Penjelasan tentang jenis-jenis ikatan kimia dan contohnya.</p>
-            `;
-            break;
-    }
-
-    document.getElementById('materiContent').innerHTML = materiContent;
-    loadSoal(materi);
+    window.location.href = 'question.html'; // Redirect to the quiz page
 }
 
 function loadQuiz(subject) {
@@ -199,77 +151,7 @@ function loadQuiz(subject) {
     }
     
     document.getElementById('quizContent').innerHTML = quizContent;
-}
-
-// Fungsi untuk memuat soal berdasarkan materi
-function loadSoal(materi) {
-    let quizContainer = document.getElementById('quiz');
-    let soalMatematikaDerivatif = [
-        { question: "1. Berapakah turunan dari f(x) = 3x²?", options: ["6x", "3x", "6", "x"] },
-        { question: "2. Berapakah integral dari f(x) = x?", options: ["x²/2", "x", "1", "x²"] }
-    ];
-
-    let soalMatematikaIntegral = [
-        { question: "1. Apa hasil integral dari f(x) = 2x?", options: ["x²", "2x", "x² + C", "2x + C"] },
-        { question: "2. Berapakah nilai integral dari x dx?", options: ["x²/2 + C", "2x", "x + C", "x²"] }
-    ];
-
-    let soalFisikaHukumNewton = [
-        { question: "1. Apa bunyi Hukum Newton pertama?", options: ["Inersia", "Aksi-Reaksi", "Gravitasi", "Massa"] },
-        { question: "2. Apa satuan SI untuk gaya?", options: ["Newton", "Pascal", "Joule", "Watt"] }
-    ];
-
-    let soalFisikaGerakParabola = [
-        { question: "1. Apa rumus kecepatan awal dalam gerak parabola?", options: ["v₀ = √(2gh)", "v₀ = u + at", "v₀ = u²", "v₀ = gt"] },
-        { question: "2. Sudut optimal untuk mencapai jarak maksimum dalam gerak parabola adalah?", options: ["45°", "60°", "30°", "90°"] }
-    ];
-
-    let soalKimiaReaksiKimia = [
-        { question: "1. Apa simbol kimia untuk air?", options: ["H₂O", "CO₂", "O₂", "N₂"] },
-        { question: "2. Apa jenis reaksi kimia saat zat dibakar?", options: ["Eksoterm", "Endoterm", "Katalis", "Redoks"] }
-    ];
-
-    let soalKimiaIkatanKimia = [
-        { question: "1. Apa jenis ikatan yang menghubungkan atom hidrogen dan oksigen dalam air?", options: ["Ikatan Kovalen", "Ikatan Ion", "Ikatan Hidrogen", "Ikatan Logam"] },
-        { question: "2. Apa nama proses perubahan zat padat langsung menjadi gas?", options: ["Sublimasi", "Kondensasi", "Evaporasi", "Pembekuan"] }
-    ];
-
-    let soal;  // Variabel untuk menampung soal sesuai materi yang dipilih
-
-    // Pilih soal berdasarkan materi
-    switch(materi) {
-        case 'derivatif':
-            soal = soalMatematikaDerivatif;
-            break;
-        case 'integral':
-            soal = soalMatematikaIntegral;
-            break;
-        case 'hukumNewton':
-            soal = soalFisikaHukumNewton;
-            break;
-        case 'gerakParabola':
-            soal = soalFisikaGerakParabola;
-            break;
-        case 'reaksiKimia':
-            soal = soalKimiaReaksiKimia;
-            break;
-        case 'ikatanKimia':
-            soal = soalKimiaIkatanKimia;
-            break;
-    }
-
-    quizContainer.innerHTML = ''; // Kosongkan soal sebelumnya
-
-    soal.forEach((item, index) => {
-        let soalHTML = `<p>${item.question}</p>`;
-        item.options.forEach((option, i) => {
-            soalHTML += `
-                <input type="radio" name="soal${index}" value="${String.fromCharCode(65 + i)}">
-                <label>${option}</label><br>
-            `;
-        });
-        quizContainer.innerHTML += soalHTML;
-    });
+    document.getElementById('quizContent').classList.remove('hidden'); // Tampilkan quizContent setelah user memilih
 }
 
 // Fungsi untuk mengecek jawaban kuis
@@ -319,16 +201,14 @@ function cekJawaban() {
         }
     });
 
-    // Menampilkan pop-up hasil
-    if (wrongQuestions.length === 0) {
-        alert(`Selamat, semua jawaban benar! Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.`);
-    } else {
-        alert(`Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.\nSoal nomor yang salah: ${wrongQuestions.join(', ')}`);
-    }
-
-    // Simpan progress jika semua soal dijawab benar
-    if (correct === totalSoal) {
-        simpanProgress(`Latihan ${materi}`);
-    }
+// Menampilkan pop-up hasil
+if (wrongQuestions.length === 0) {
+    alert(`Selamat, semua jawaban benar! Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.`);
+} else {
+    alert(`Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.\nSoal nomor yang salah: ${wrongQuestions.join(', ')}`);
 }
 
+// Simpan progress jika semua soal dijawab benar
+if (correct === totalSoal) {
+    simpanProgress(`Latihan ${materi}`); }
+}

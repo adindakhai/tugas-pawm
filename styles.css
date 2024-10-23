@@ -77,6 +77,11 @@ section {
     transition: background-color 0.3s ease;
 }
 
+.options button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
 /* Subject buttons styling for materials.html */
 .subject-buttons {
     display: flex;
@@ -105,12 +110,12 @@ section {
     height: 24px;
 }
 
-.subject-buttons button:hover {
-    background-color: #fce4ec;
-    color: #000;
+.hidden {
+    display: none;
 }
 
-.options button:hover {
+
+.subject-buttons button:hover {
     background-color: #fce4ec;
     color: #000;
 }
@@ -172,4 +177,55 @@ button.dark {
 button.dark:hover {
     background-color: #000000; /* Black button hover */
     color: #fce4ec; /* Soft pink text on hover */
+}
+
+/* Quiz Section Styling */
+#quizContent {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#quizContent h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#quizContent p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#quizContent input[type="radio"] {
+    margin-right: 10px;
+}
+
+#quizContent label {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+#quizContent button {
+    background-color: #000000;
+    color: #fce4ec;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+}
+
+#quizContent button:hover {
+    background-color: #fce4ec;
+    color: #000000;
 }
