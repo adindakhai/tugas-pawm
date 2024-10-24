@@ -390,7 +390,7 @@ function showPhysicsQuizResults() {
     });
 
     resultHTML += `</ul>
-        <button onclick="startPhysicsQuiz()">Restart Quiz</button>
+        <button class="restart-button" onclick="startPhysicsQuiz()">Restart Quiz</button>
     `;
 
     quizContainer.innerHTML = resultHTML;
@@ -418,7 +418,7 @@ function showMathQuizResults() {
     });
 
     resultHTML += `</ul>
-        <button onclick="startMathQuiz()">Restart Quiz</button>
+        <button class="restart-button" onclick="startMathQuiz()">Restart Quiz</button>
     `;
 
     quizContainer.innerHTML = resultHTML;
@@ -445,36 +445,8 @@ function showChemistryQuizResults() {
     });
 
     resultHTML += `</ul>
-        <button onclick="startChemistryQuiz()">Restart Quiz</button>
+        <button class="restart-button" onclick="startChemistryQuiz()">Restart Quiz</button>
     `;
 
     quizContainer.innerHTML = resultHTML;
-}
-
-// Physics quiz logic (can be expanded similarly to math)
-function loadPhysicsQuiz() {
-    document.getElementById('quizContent').innerHTML = `
-        <h3>Physics Quiz</h3>
-        <p>1. What is Newton's first law?</p>
-        <input type="radio" name="q1" value="A"> Inertia<br>
-        <input type="radio" name="q1" value="B"> Action-Reaction<br>
-        <input type="radio" name="q1" value="C"> Gravity<br>
-        <input type="radio" name="q1" value="D"> Mass<br><br>
-        <button onclick="submitPhysicsAnswer()">Submit</button>
-    `;
-    document.getElementById('quizContent').classList.remove('hidden');
-}
-
-// Chemistry quiz logic (can be expanded similarly to math)
-function loadChemistryQuiz() {
-    document.getElementById('quizContent').innerHTML = `
-        <h3>Chemistry Quiz</h3>
-        <p>1. What is the chemical symbol for water?</p>
-        <input type="radio" name="q1" value="A"> H₂O<br>
-        <input type="radio" name="q1" value="B"> CO₂<br>
-        <input type="radio" name="q1" value="C"> O₂<br>
-        <input type="radio" name="q1" value="D"> N₂<br><br>
-        <button onclick="submitChemistryAnswer()">Submit</button>
-    `;
-    document.getElementById('quizContent').classList.remove('hidden');
 }

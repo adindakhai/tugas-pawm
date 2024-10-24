@@ -299,3 +299,22 @@ button.dark:hover {
     transform: scale(1.5); /* Slight enlargement on hover */
 }
 
+.restart-button {
+    background-color: #000000; /* Warna latar belakang hitam untuk tombol restart */
+    color: #fce4ec; /* Warna teks pink lembut pada tombol */
+    border: none; /* Menghapus border tombol */
+    padding: 10px 20px; /* Padding dalam tombol */
+    font-size: 1.2rem; /* Ukuran font pada tombol */
+    border-radius: 8px; /* Membuat sudut tombol melengkung */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+    display: block; /* Menampilkan tombol sebagai blok */
+    margin-left: auto; /* Menengahkan tombol secara horizontal */
+    margin-right: auto; /* Menengahkan tombol secara horizontal */
+    transition: background-color 0.3s ease; /* Efek transisi saat warna tombol berubah */
+    margin-top: 20px; /* Tambahkan sedikit jarak atas */
+}
+
+.restart-button:hover {
+    background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
+    color: #000000; /* Warna teks berubah menjadi hitam saat hover */
+}
