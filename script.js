@@ -1,16 +1,3 @@
-// Konfigurasi Firebase
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",  // API key yang digunakan untuk otentikasi aplikasi dengan Firebase
-    authDomain: "YOUR_DOMAIN",  // Domain otentikasi Firebase
-    databaseURL: "https://YOUR_DATABASE.firebaseio.com",  // URL database Firebase
-    projectId: "YOUR_PROJECT_ID",  // ID proyek Firebase
-    storageBucket: "YOUR_STORAGE_BUCKET",  // Storage bucket untuk menyimpan file
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",  // ID pengirim pesan Firebase Cloud Messaging
-    appId: "YOUR_APP_ID"  // ID aplikasi Firebase
-};
-firebase.initializeApp(firebaseConfig);  // Inisialisasi aplikasi Firebase dengan konfigurasi di atas
-const db = firebase.database();  // Referensi ke database Firebase
-
 // Fungsi untuk menyimpan progress pengguna di localStorage
 function simpanProgress(bab) {
     let progress = JSON.parse(localStorage.getItem('progress')) || [];  // Ambil data progress dari localStorage atau buat array kosong
@@ -157,63 +144,63 @@ function loadQuiz(subject) {
     document.getElementById('quizContent').classList.remove('hidden'); // Hapus kelas 'hidden' untuk menampilkan kuis setelah user memilih subjek
 }
 
-// Fungsi untuk mengecek jawaban kuis yang diberikan oleh pengguna
-function cekJawaban() {
-    let correctAnswers;  // Variabel untuk menyimpan jawaban yang benar
-    const materi = document.getElementById('pilihMateri').value;  // Ambil materi yang dipilih oleh pengguna dari dropdown
+// // Fungsi untuk mengecek jawaban kuis yang diberikan oleh pengguna
+// function cekJawaban() {
+//     let correctAnswers;  // Variabel untuk menyimpan jawaban yang benar
+//     const materi = document.getElementById('pilihMateri').value;  // Ambil materi yang dipilih oleh pengguna dari dropdown
 
-    // Tentukan jawaban yang benar berdasarkan materi yang dipilih
-    switch (materi) {
-        case 'derivatif':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Derivatif
-            break;
-        case 'integral':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Integral
-            break;
-        case 'hukumNewton':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Hukum Newton
-            break;
-        case 'gerakParabola':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Gerak Parabola
-            break;
-        case 'reaksiKimia':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Reaksi Kimia
-            break;
-        case 'ikatanKimia':
-            correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Ikatan Kimia
-            break;
-    }
+//     // Tentukan jawaban yang benar berdasarkan materi yang dipilih
+//     switch (materi) {
+//         case 'derivatif':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Derivatif
+//             break;
+//         case 'integral':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Integral
+//             break;
+//         case 'hukumNewton':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Hukum Newton
+//             break;
+//         case 'gerakParabola':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Gerak Parabola
+//             break;
+//         case 'reaksiKimia':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Reaksi Kimia
+//             break;
+//         case 'ikatanKimia':
+//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Ikatan Kimia
+//             break;
+//     }
 
-    let userAnswers = document.querySelectorAll('input[type="radio"]:checked');  // Ambil semua jawaban yang dipilih oleh pengguna
-    let totalSoal = correctAnswers.length;  // Tentukan jumlah total soal
+//     let userAnswers = document.querySelectorAll('input[type="radio"]:checked');  // Ambil semua jawaban yang dipilih oleh pengguna
+//     let totalSoal = correctAnswers.length;  // Tentukan jumlah total soal
 
-    // Jika jumlah jawaban yang diisi tidak sesuai dengan jumlah soal, munculkan pesan error
-    if (userAnswers.length < totalSoal) {
-        alert("Anda harus menjawab semua soal sebelum melakukan submit!");  // Tampilkan pesan bahwa semua soal harus dijawab
-        return;  // Keluar dari fungsi jika ada soal yang belum dijawab
-    }
+//     // Jika jumlah jawaban yang diisi tidak sesuai dengan jumlah soal, munculkan pesan error
+//     if (userAnswers.length < totalSoal) {
+//         alert("Anda harus menjawab semua soal sebelum melakukan submit!");  // Tampilkan pesan bahwa semua soal harus dijawab
+//         return;  // Keluar dari fungsi jika ada soal yang belum dijawab
+//     }
 
-    let correct = 0;  // Variabel untuk menghitung jumlah jawaban yang benar
-    let wrongQuestions = [];  // Array untuk menyimpan nomor soal yang salah
+//     let correct = 0;  // Variabel untuk menghitung jumlah jawaban yang benar
+//     let wrongQuestions = [];  // Array untuk menyimpan nomor soal yang salah
 
-    // Loop melalui setiap jawaban yang dipilih oleh pengguna
-    userAnswers.forEach((answer, index) => {
-        if (answer.value === correctAnswers[index]) {  // Jika jawaban benar
-            correct++;  // Tambahkan satu ke variabel correct
-        } else {
-            wrongQuestions.push(index + 1);  // Jika salah, tambahkan nomor soal yang salah ke array
-        }
-    });
+//     // Loop melalui setiap jawaban yang dipilih oleh pengguna
+//     userAnswers.forEach((answer, index) => {
+//         if (answer.value === correctAnswers[index]) {  // Jika jawaban benar
+//             correct++;  // Tambahkan satu ke variabel correct
+//         } else {
+//             wrongQuestions.push(index + 1);  // Jika salah, tambahkan nomor soal yang salah ke array
+//         }
+//     });
 
-    // Tampilkan hasil dalam pop-up
-    if (wrongQuestions.length === 0) {  // Jika semua jawaban benar
-        alert(`Selamat, semua jawaban benar! Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.`);  // Tampilkan pesan selamat
-    } else {  // Jika ada jawaban yang salah
-        alert(`Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.\nSoal nomor yang salah: ${wrongQuestions.join(', ')}`);  // Tampilkan soal yang salah
-    }
+//     // Tampilkan hasil dalam pop-up
+//     if (wrongQuestions.length === 0) {  // Jika semua jawaban benar
+//         alert(`Selamat, semua jawaban benar! Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.`);  // Tampilkan pesan selamat
+//     } else {  // Jika ada jawaban yang salah
+//         alert(`Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.\nSoal nomor yang salah: ${wrongQuestions.join(', ')}`);  // Tampilkan soal yang salah
+//     }
 
-    // Simpan progress jika semua soal dijawab benar
-    if (correct === totalSoal) {
-        simpanProgress(`Latihan ${materi}`);  // Panggil fungsi untuk menyimpan progress ke localStorage
-    }
-}
+//     // Simpan progress jika semua soal dijawab benar
+//     if (correct === totalSoal) {
+//         simpanProgress(`Latihan ${materi}`);  // Panggil fungsi untuk menyimpan progress ke localStorage
+//     }
+
