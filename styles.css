@@ -144,6 +144,12 @@ section {
     display: none; /* Menyembunyikan elemen */
 }
 
+.description {
+    max-width: 560px; /* Sesuaikan lebar maksimal agar teks terpecah menjadi dua baris */
+    margin: 0 auto 20px auto; /* Agar tetap berada di tengah */
+    text-align: center; /* Opsional, bisa untuk membuat teks rata kiri */
+}
+
 /* Hover pada tombol mata pelajaran */
 .subject-buttons button:hover {
     background-color: #fce4ec; /* Mengubah latar belakang saat hover menjadi pink lembut */
