@@ -1,206 +1,128 @@
-// Fungsi untuk menyimpan progress pengguna di localStorage
-function simpanProgress(bab) {
-    let progress = JSON.parse(localStorage.getItem('progress')) || [];  // Ambil data progress dari localStorage atau buat array kosong
-    if (!progress.includes(bab)) {  // Jika progress belum mencakup bab ini
-        progress.push(bab);  // Tambahkan bab ke array progress
-        localStorage.setItem('progress', JSON.stringify(progress));  // Simpan progress yang telah diupdate ke localStorage
-    }
-}
+// Pool of 20 questions for the Mathematics quiz
+const mathQuestions = [
+    { question: "What is the derivative of f(x) = 3x²?", options: ["6x", "3x", "6", "x"], answer: "6x" },
+    { question: "What is the integral of f(x) = x?", options: ["x²/2", "x", "1", "x²"], answer: "x²/2" },
+    { question: "Solve for x: 2x + 5 = 11", options: ["x = 3", "x = 6", "x = -3", "x = 4"], answer: "x = 3" },
+    { question: "What is the limit of (x² - 1)/(x - 1) as x approaches 1?", options: ["1", "2", "0", "Does not exist"], answer: "2" },
+    { question: "What is sin(90°)?", options: ["0", "1", "-1", "0.5"], answer: "1" },
+    { question: "What is cos(0°)?", options: ["1", "0", "-1", "0.5"], answer: "1" },
+    { question: "Solve: x² - 4 = 0", options: ["x = 2", "x = -2", "x = ±2", "x = 0"], answer: "x = ±2" },
+    { question: "What is the value of π?", options: ["3.141", "3.14", "22/7", "All of the above"], answer: "All of the above" },
+    { question: "What is the derivative of sin(x)?", options: ["cos(x)", "-sin(x)", "tan(x)", "sec(x)"], answer: "cos(x)" },
+    { question: "What is the integral of 1/x?", options: ["ln|x|", "1/x²", "x", "log(x)"], answer: "ln|x|" },
+    { question: "Solve: log₂(8) = ?", options: ["2", "3", "4", "1"], answer: "3" },
+    { question: "What is tan(45°)?", options: ["1", "0", "√2", "-1"], answer: "1" },
+    { question: "Solve: 3x - 4 = 5", options: ["x = 3", "x = 4", "x = 5", "x = 6"], answer: "x = 3" },
+    { question: "What is the value of e (Euler's number)?", options: ["2.71", "3.14", "1.62", "1.41"], answer: "2.71" },
+    { question: "What is the square root of 16?", options: ["4", "8", "2", "6"], answer: "4" },
+    { question: "Solve: x² + 4x + 4 = 0", options: ["x = -2", "x = 2", "x = ±2", "x = 0"], answer: "x = -2" },
+    { question: "What is sin(30°)?", options: ["0.5", "1", "-0.5", "0"], answer: "0.5" },
+    { question: "What is cos(180°)?", options: ["-1", "0", "1", "-0.5"], answer: "-1" },
+    { question: "Solve: 5x - 2 = 3x + 8", options: ["x = 5", "x = 4", "x = 6", "x = 2"], answer: "x = 5" },
+    { question: "What is the derivative of x³?", options: ["3x²", "x²", "2x", "3x"], answer: "3x²" }
+];
 
-// Fungsi untuk menampilkan progress yang sudah disimpan
-function tampilkanProgress() {
-    let progress = JSON.parse(localStorage.getItem('progress')) || [];  // Ambil data progress dari localStorage
-    alert("Bab yang sudah selesai: " + progress.join(', '));  // Tampilkan progress dalam bentuk alert
-}
+let selectedQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
 
-// Fungsi untuk menampilkan halaman Home
-function showHome() {
-    document.getElementById('home').classList.add('active');  // Tambahkan kelas 'active' ke elemen dengan id 'home'
-    document.getElementById('home').classList.remove('hidden');  // Hapus kelas 'hidden' untuk menampilkan elemen home
-    document.getElementById('materi').classList.add('hidden');  // Sembunyikan elemen materi
-    document.getElementById('latihan').classList.add('hidden');  // Sembunyikan elemen latihan
-}
-
-// Fungsi untuk menampilkan halaman Materi
-function showMateri() {
-    document.getElementById('home').classList.add('hidden');  // Sembunyikan elemen home
-    document.getElementById('materi').classList.add('active');  // Tampilkan elemen materi dengan menambahkan kelas 'active'
-    document.getElementById('materi').classList.remove('hidden');  // Hapus kelas 'hidden' dari elemen materi
-    document.getElementById('latihan').classList.add('hidden');  // Sembunyikan elemen latihan
-}
-
-// Fungsi untuk menampilkan halaman Latihan
-function showLatihan() {
-    document.getElementById('home').classList.add('hidden');  // Sembunyikan elemen home
-    document.getElementById('materi').classList.add('hidden');  // Sembunyikan elemen materi
-    document.getElementById('latihan').classList.add('active');  // Tampilkan elemen latihan dengan menambahkan kelas 'active'
-    document.getElementById('latihan').classList.remove('hidden');  // Hapus kelas 'hidden' dari elemen latihan
-}
-
-// Fungsi untuk memuat pelajaran dan materi yang relevan
-function loadPelajaran() {
-    const pelajaran = document.getElementById('pilihPelajaran').value;  // Ambil pelajaran yang dipilih dari dropdown
-    const materiSelect = document.getElementById('pilihMateri');  // Referensi ke dropdown materi
-    materiSelect.innerHTML = '';  // Kosongkan opsi sebelumnya di dropdown materi
-
-    let materiOptions = [];  // Buat array untuk menyimpan opsi materi
-
-    // Jika pelajaran adalah matematika, tambahkan opsi materi terkait matematika
-    if (pelajaran === 'matematika') {
-        materiOptions = [
-            { value: 'derivatif', text: 'Derivatif' },
-            { value: 'integral', text: 'Integral' }
-        ];
-    } else if (pelajaran === 'fisika') {
-        materiOptions = [
-            { value: 'hukumNewton', text: 'Hukum Newton' },
-            { value: 'gerakParabola', text: 'Gerak Parabola' }
-        ];
-    } else if (pelajaran === 'kimia') {
-        materiOptions = [
-            { value: 'reaksiKimia', text: 'Reaksi Kimia' },
-            { value: 'ikatanKimia', text: 'Ikatan Kimia' }
-        ];
-    }
-
-    // Tambahkan setiap opsi materi ke dropdown materi
-    materiOptions.forEach((option) => {
-        let opt = document.createElement('option');  // Buat elemen option baru
-        opt.value = option.value;  // Setel nilai option
-        opt.text = option.text;  // Setel teks yang akan ditampilkan di dropdown
-        materiSelect.add(opt);  // Tambahkan option ke dropdown
-    });
-
-    loadMateri();  // Panggil fungsi loadMateri untuk menampilkan materi yang dipilih
-}
-
-// Fungsi untuk menampilkan halaman Materi
-function showMateri() {
-    window.location.href = 'materials.html';  // Arahkan pengguna ke halaman materials.html
-}
-
-// Fungsi untuk menampilkan halaman Kuis
-function showQuiz() {
-    window.location.href = 'question.html';  // Arahkan pengguna ke halaman question.html
-}
-
-// Fungsi untuk memuat kuis berdasarkan subjek yang dipilih
+// Function to load quiz based on selected subject
 function loadQuiz(subject) {
-    let quizContent = '';  // Variabel untuk menyimpan konten kuis
-
-    // Tentukan kuis berdasarkan subjek yang dipilih
-    switch(subject) {
-        case 'matematika':
-            quizContent = `
-                <h3>Mathematics Quiz</h3>
-                <p>1. What is the derivative of f(x) = 3x²?</p>
-                <input type="radio" name="q1" value="A"> 6x<br>
-                <input type="radio" name="q1" value="B"> 3x<br>
-                <input type="radio" name="q1" value="C"> 6<br>
-                <input type="radio" name="q1" value="D"> x<br><br>
-                <p>2. What is the integral of f(x) = x?</p>
-                <input type="radio" name="q2" value="A"> x²/2<br>
-                <input type="radio" name="q2" value="B"> x<br>
-                <input type="radio" name="q2" value="C"> 1<br>
-                <input type="radio" name="q2" value="D"> x²<br><br>
-                <button onclick="cekJawaban()">Submit</button>
-            `;
-            break;
-        case 'fisika':
-            quizContent = `
-                <h3>Physics Quiz</h3>
-                <p>1. What is Newton's first law?</p>
-                <input type="radio" name="q1" value="A"> Inertia<br>
-                <input type="radio" name="q1" value="B"> Action-Reaction<br>
-                <input type="radio" name="q1" value="C"> Gravity<br>
-                <input type="radio" name="q1" value="D"> Mass<br><br>
-                <p>2. What is the SI unit of force?</p>
-                <input type="radio" name="q2" value="A"> Newton<br>
-                <input type="radio" name="q2" value="B"> Pascal<br>
-                <input type="radio" name="q2" value="C"> Joule<br>
-                <input type="radio" name="q2" value="D"> Watt<br><br>
-                <button onclick="cekJawaban()">Submit</button>
-            `;
-            break;
-        case 'kimia':
-            quizContent = `
-                <h3>Chemistry Quiz</h3>
-                <p>1. What is the chemical symbol for water?</p>
-                <input type="radio" name="q1" value="A"> H₂O<br>
-                <input type="radio" name="q1" value="B"> CO₂<br>
-                <input type="radio" name="q1" value="C"> O₂<br>
-                <input type="radio" name="q1" value="D"> N₂<br><br>
-                <p>2. What type of reaction occurs when a substance is burned?</p>
-                <input type="radio" name="q2" value="A"> Exothermic<br>
-                <input type="radio" name="q2" value="B"> Endothermic<br>
-                <input type="radio" name="q2" value="C"> Catalysis<br>
-                <input type="radio" name="q2" value="D"> Redox<br><br>
-                <button onclick="cekJawaban()">Submit</button>
-            `;
-            break;
+    if (subject === 'matematika') {
+        document.getElementById('quizContent').classList.remove('hidden'); // Show the quiz section
+        startMathQuiz();  // Call the function to start the math quiz
+    } else if (subject === 'fisika') {
+        loadPhysicsQuiz();
+    } else if (subject === 'kimia') {
+        loadChemistryQuiz();
     }
-    
-    document.getElementById('quizContent').innerHTML = quizContent;  // Tampilkan konten kuis di elemen dengan id 'quizContent'
-    document.getElementById('quizContent').classList.remove('hidden'); // Hapus kelas 'hidden' untuk menampilkan kuis setelah user memilih subjek
 }
 
-// // Fungsi untuk mengecek jawaban kuis yang diberikan oleh pengguna
-// function cekJawaban() {
-//     let correctAnswers;  // Variabel untuk menyimpan jawaban yang benar
-//     const materi = document.getElementById('pilihMateri').value;  // Ambil materi yang dipilih oleh pengguna dari dropdown
+// Function to start the Math Quiz
+function startMathQuiz() {
+    const shuffledQuestions = mathQuestions.sort(() => 0.5 - Math.random()); // Shuffle questions
+    selectedQuestions = shuffledQuestions.slice(0, 5); // Pick 5 random questions
+    currentQuestionIndex = 0;
+    score = 0;
+    displayMathQuestion(); // Call the function to display the first question
+}
 
-//     // Tentukan jawaban yang benar berdasarkan materi yang dipilih
-//     switch (materi) {
-//         case 'derivatif':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Derivatif
-//             break;
-//         case 'integral':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Integral
-//             break;
-//         case 'hukumNewton':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Hukum Newton
-//             break;
-//         case 'gerakParabola':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Gerak Parabola
-//             break;
-//         case 'reaksiKimia':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Reaksi Kimia
-//             break;
-//         case 'ikatanKimia':
-//             correctAnswers = ['A', 'A']; // Jawaban benar untuk materi Ikatan Kimia
-//             break;
-//     }
+// Function to display a Math question
+function displayMathQuestion() {
+    const quizContainer = document.getElementById('quizContent');
+    const question = selectedQuestions[currentQuestionIndex];
+    
+    quizContainer.innerHTML = `
+        <h3>Mathematics Quiz</h3>
+        <p>${question.question}</p>
+        ${question.options.map((option, index) => `
+            <label>
+                <input type="radio" name="answer" value="${option}"> ${option}
+            </label><br>
+        `).join('')}
+        <button onclick="submitMathAnswer()">Submit</button>
+    `;
+}
 
-//     let userAnswers = document.querySelectorAll('input[type="radio"]:checked');  // Ambil semua jawaban yang dipilih oleh pengguna
-//     let totalSoal = correctAnswers.length;  // Tentukan jumlah total soal
+// Function to handle Math answer submission
+function submitMathAnswer() {
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
+    if (!selectedOption) {
+        alert("Please select an answer before proceeding.");
+        return;
+    }
 
-//     // Jika jumlah jawaban yang diisi tidak sesuai dengan jumlah soal, munculkan pesan error
-//     if (userAnswers.length < totalSoal) {
-//         alert("Anda harus menjawab semua soal sebelum melakukan submit!");  // Tampilkan pesan bahwa semua soal harus dijawab
-//         return;  // Keluar dari fungsi jika ada soal yang belum dijawab
-//     }
+    const userAnswer = selectedOption.value;
+    const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
-//     let correct = 0;  // Variabel untuk menghitung jumlah jawaban yang benar
-//     let wrongQuestions = [];  // Array untuk menyimpan nomor soal yang salah
+    if (userAnswer === correctAnswer) {
+        score++;
+    }
 
-//     // Loop melalui setiap jawaban yang dipilih oleh pengguna
-//     userAnswers.forEach((answer, index) => {
-//         if (answer.value === correctAnswers[index]) {  // Jika jawaban benar
-//             correct++;  // Tambahkan satu ke variabel correct
-//         } else {
-//             wrongQuestions.push(index + 1);  // Jika salah, tambahkan nomor soal yang salah ke array
-//         }
-//     });
+    currentQuestionIndex++;
 
-//     // Tampilkan hasil dalam pop-up
-//     if (wrongQuestions.length === 0) {  // Jika semua jawaban benar
-//         alert(`Selamat, semua jawaban benar! Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.`);  // Tampilkan pesan selamat
-//     } else {  // Jika ada jawaban yang salah
-//         alert(`Anda menjawab ${correct} dari ${totalSoal} soal dengan benar.\nSoal nomor yang salah: ${wrongQuestions.join(', ')}`);  // Tampilkan soal yang salah
-//     }
+    if (currentQuestionIndex < selectedQuestions.length) {
+        displayMathQuestion(); // Show the next question
+    } else {
+        showMathQuizResults(); // Show results after 5 questions
+    }
+}
 
-//     // Simpan progress jika semua soal dijawab benar
-//     if (correct === totalSoal) {
-//         simpanProgress(`Latihan ${materi}`);  // Panggil fungsi untuk menyimpan progress ke localStorage
-//     }
+// Function to show the Math quiz results
+function showMathQuizResults() {
+    const quizContainer = document.getElementById('quizContent');
+    quizContainer.innerHTML = `
+        <h3>Quiz Completed</h3>
+        <p>You answered ${score} out of 5 questions correctly.</p>
+        <button onclick="startMathQuiz()">Restart Quiz</button>
+    `;
+}
 
+// Physics quiz logic (can be expanded similarly to math)
+function loadPhysicsQuiz() {
+    document.getElementById('quizContent').innerHTML = `
+        <h3>Physics Quiz</h3>
+        <p>1. What is Newton's first law?</p>
+        <input type="radio" name="q1" value="A"> Inertia<br>
+        <input type="radio" name="q1" value="B"> Action-Reaction<br>
+        <input type="radio" name="q1" value="C"> Gravity<br>
+        <input type="radio" name="q1" value="D"> Mass<br><br>
+        <button onclick="submitPhysicsAnswer()">Submit</button>
+    `;
+    document.getElementById('quizContent').classList.remove('hidden');
+}
+
+// Chemistry quiz logic (can be expanded similarly to math)
+function loadChemistryQuiz() {
+    document.getElementById('quizContent').innerHTML = `
+        <h3>Chemistry Quiz</h3>
+        <p>1. What is the chemical symbol for water?</p>
+        <input type="radio" name="q1" value="A"> H₂O<br>
+        <input type="radio" name="q1" value="B"> CO₂<br>
+        <input type="radio" name="q1" value="C"> O₂<br>
+        <input type="radio" name="q1" value="D"> N₂<br><br>
+        <button onclick="submitChemistryAnswer()">Submit</button>
+    `;
+    document.getElementById('quizContent').classList.remove('hidden');
+}

@@ -240,6 +240,16 @@ button.dark:hover {
     color: #444; /* Warna teks abu-abu sedang untuk label */
 }
 
+#quizContent {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
 #quizContent button {
     background-color: #000000; /* Warna latar belakang hitam untuk tombol submit di kuis */
     color: #fce4ec; /* Warna teks pink lembut pada tombol */
