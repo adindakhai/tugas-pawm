@@ -231,6 +231,7 @@ const chemistryQuestions = [
 let selectedQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
+let questionResults = [];  // Array to store user's answer and the correct answer
 
 // Function to load quiz based on selected subject
 function loadQuiz(subject) {
@@ -255,29 +256,33 @@ function startMathQuiz() {
     displayMathQuestion(); // Call the function to display the first question
 }
 
+function startMathQuiz() {
+    questionResults = []; // Reset question results
+    const shuffledQuestions = mathQuestions.sort(() => 0.5 - Math.random()); 
+    selectedQuestions = shuffledQuestions.slice(0, 5); 
+    currentQuestionIndex = 0;
+    score = 0;
+    displayMathQuestion();
+}
+
 function startPhysicsQuiz() {
-    const shuffledQuestions = physicsQuestions.sort(() => 0.5 - Math.random()); // Shuffle questions
-    selectedQuestions = shuffledQuestions.slice(0, 5); // Pick 5 random questions
+    questionResults = []; // Reset question results
+    const shuffledQuestions = physicsQuestions.sort(() => 0.5 - Math.random()); 
+    selectedQuestions = shuffledQuestions.slice(0, 5); 
     currentQuestionIndex = 0;
     score = 0;
-    displayPhysicsQuestion(); // Call the function to display the first question
+    displayPhysicsQuestion();
 }
 
 function startChemistryQuiz() {
-    const shuffledQuestions = chemistryQuestions.sort(() => 0.5 - Math.random()); // Shuffle questions
-    selectedQuestions = shuffledQuestions.slice(0, 5); // Pick 5 random questions
+    questionResults = []; // Reset question results
+    const shuffledQuestions = chemistryQuestions.sort(() => 0.5 - Math.random()); 
+    selectedQuestions = shuffledQuestions.slice(0, 5); 
     currentQuestionIndex = 0;
     score = 0;
-    displayChemistryQuestion(); // Call the function to display the first question
+    displayChemistryQuestion();
 }
 
-function startChemistryQuiz() {
-    const shuffledQuestions = chemistryQuestions.sort(() => 0.5 - Math.random()); // Shuffle questions
-    selectedQuestions = shuffledQuestions.slice(0, 5); // Pick 5 random questions
-    currentQuestionIndex = 0;
-    score = 0;
-    displayChemistryQuestion(); // Call the function to display the first question
-}
 
 // Function to display a Math question
 function displayMathQuestion() {
@@ -341,6 +346,15 @@ function submitMathAnswer() {
     const userAnswer = selectedOption.value;
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
+    // Store the result for this question
+    questionResults.push({
+        questionNumber: currentQuestionIndex + 1,
+        question: selectedQuestions[currentQuestionIndex].question,
+        userAnswer: userAnswer,
+        correctAnswer: correctAnswer,
+        isCorrect: userAnswer === correctAnswer
+    });
+
     if (userAnswer === correctAnswer) {
         score++;
     }
@@ -364,6 +378,15 @@ function submitPhysicsAnswer() {
 
     const userAnswer = selectedOption.value;
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
+
+    // Store the result for this question
+    questionResults.push({
+        questionNumber: currentQuestionIndex + 1,
+        question: selectedQuestions[currentQuestionIndex].question,
+        userAnswer: userAnswer,
+        correctAnswer: correctAnswer,
+        isCorrect: userAnswer === correctAnswer
+    });
 
     if (userAnswer === correctAnswer) {
         score++;
@@ -389,6 +412,15 @@ function submitChemistryAnswer() {
     const userAnswer = selectedOption.value;
     const correctAnswer = selectedQuestions[currentQuestionIndex].answer;
 
+    // Store the result for this question
+    questionResults.push({
+        questionNumber: currentQuestionIndex + 1,
+        question: selectedQuestions[currentQuestionIndex].question,
+        userAnswer: userAnswer,
+        correctAnswer: correctAnswer,
+        isCorrect: userAnswer === correctAnswer
+    });
+
     if (userAnswer === correctAnswer) {
         score++;
     }
@@ -402,33 +434,86 @@ function submitChemistryAnswer() {
     }
 }
 
-
 function showPhysicsQuizResults() {
     const quizContainer = document.getElementById('quizContent');
-    quizContainer.innerHTML = `
+    
+    let resultHTML = `
         <h3>Quiz Completed</h3>
         <p>You answered ${score} out of 5 questions correctly.</p>
+        <h4>Review Your Answers:</h4>
+        <ul>
+    `;
+
+    questionResults.forEach(result => {
+        resultHTML += `
+            <li>
+                <strong>Question ${result.questionNumber}:</strong> ${result.question}<br>
+                <strong>Your Answer:</strong> ${result.userAnswer} - ${result.isCorrect ? 'Correct' : 'Incorrect'}<br>
+                <strong>Correct Answer:</strong> ${result.correctAnswer}
+            </li><br>
+        `;
+    });
+
+    resultHTML += `</ul>
         <button onclick="startPhysicsQuiz()">Restart Quiz</button>
     `;
+
+    quizContainer.innerHTML = resultHTML;
 }
 
 // Function to show the Math quiz results
 function showMathQuizResults() {
     const quizContainer = document.getElementById('quizContent');
-    quizContainer.innerHTML = `
+    
+    let resultHTML = `
         <h3>Quiz Completed</h3>
         <p>You answered ${score} out of 5 questions correctly.</p>
+        <h4>Review Your Answers:</h4>
+        <ul>
+    `;
+
+    questionResults.forEach(result => {
+        resultHTML += `
+            <li>
+                <strong>Question ${result.questionNumber}:</strong> ${result.question}<br>
+                <strong>Your Answer:</strong> ${result.userAnswer} - ${result.isCorrect ? 'Correct' : 'Incorrect'}<br>
+                <strong>Correct Answer:</strong> ${result.correctAnswer}
+            </li><br>
+        `;
+    });
+
+    resultHTML += `</ul>
         <button onclick="startMathQuiz()">Restart Quiz</button>
     `;
+
+    quizContainer.innerHTML = resultHTML;
 }
 
 function showChemistryQuizResults() {
     const quizContainer = document.getElementById('quizContent');
-    quizContainer.innerHTML = `
+    
+    let resultHTML = `
         <h3>Quiz Completed</h3>
         <p>You answered ${score} out of 5 questions correctly.</p>
+        <h4>Review Your Answers:</h4>
+        <ul>
+    `;
+
+    questionResults.forEach(result => {
+        resultHTML += `
+            <li>
+                <strong>Question ${result.questionNumber}:</strong> ${result.question}<br>
+                <strong>Your Answer:</strong> ${result.userAnswer} - ${result.isCorrect ? 'Correct' : 'Incorrect'}<br>
+                <strong>Correct Answer:</strong> ${result.correctAnswer}
+            </li><br>
+        `;
+    });
+
+    resultHTML += `</ul>
         <button onclick="startChemistryQuiz()">Restart Quiz</button>
     `;
+
+    quizContainer.innerHTML = resultHTML;
 }
 
 // Physics quiz logic (can be expanded similarly to math)
