@@ -230,6 +230,7 @@ button.dark:hover {
     font-size: 2rem; /* Mengatur ukuran font heading di dalam konten kuis */
     color: #333; /* Warna teks abu-abu gelap untuk heading */
     margin-bottom: 20px; /* Jarak bawah heading */
+    margin-top: 0px;
 }
 
 #quizContent p {
@@ -256,8 +257,8 @@ button.dark:hover {
     text-align: left;
 }
 
-#quizContent button {
-    background-color: #000000; /* Warna latar belakang hitam untuk tombol submit di kuis */
+.submit-button {
+    background-color: #000000; /* Warna latar belakang hitam untuk tombol submit */
     color: #fce4ec; /* Warna teks pink lembut pada tombol */
     border: none; /* Menghapus border tombol */
     padding: 10px 20px; /* Padding dalam tombol */
@@ -271,7 +272,30 @@ button.dark:hover {
     transition: background-color 0.3s ease; /* Efek transisi saat warna tombol berubah */
 }
 
-#quizContent button:hover {
+.submit-button:hover {
     background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
+
+/* Hint button positioned in the top-right corner of the quiz card */
+.hint-button {
+    position: absolute;  /* Position it relative to the quiz card */
+    top: 10px;           /* Distance from the top */
+    right: 10px;         /* Distance from the right */
+    background: none;    /* Remove background */
+    border: none;        /* Remove borders */
+    padding: 0;          /* No padding */
+    cursor: pointer;     /* Pointer on hover */
+    display: flex;       /* Ensure the button behaves like a flexible container */
+}
+
+.hint-button img {
+    width: 40px;         /* Initial size of the bulb icon */
+    height: 40px;        /* Initial size of the bulb icon */
+    transition: transform 0.3s ease;  /* Add smooth scaling effect on hover */
+}
+
+.hint-button:hover img {
+    transform: scale(1.5); /* Slight enlargement on hover */
+}
+
