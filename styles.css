@@ -19,7 +19,10 @@ body {
 header {
     background-color: #000000; /* Memberikan warna latar belakang hitam pada header */
     color: #fce4ec; /* Memberikan warna teks pink lembut pada header */
-    padding: 30px; /* Memberikan jarak di sekitar konten dalam header */
+    padding: 20px; /* Memberikan jarak di sekitar konten dalam header */
+    margin-bottom: auto; /* Memastikan footer berada di bagian bawah */
+    width: 100%; /* Lebar penuh */
+    position: relative;
 }
 
 .logo-container {
@@ -95,6 +98,8 @@ section {
     display: flex; /* Menggunakan flexbox untuk menata tombol kembali ke home */
     justify-content: center; /* Menengahkan tombol kembali ke home */
     margin-top: 20px; /* Jarak atas untuk tombol kembali ke home */
+    width: 100%; /* Lebar penuh */
+    position: relative;
 }
 
 .back-to-home button {
