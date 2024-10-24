@@ -44,13 +44,11 @@ header {
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    text-align: center;
-    margin: 0 auto; /* Ensure the content stays in the center */
-    width: 100%; /* Ensure it takes the full width */
+    flex-grow: 1; /* Membuat elemen section berkembang untuk mengisi ruang yang tersedia */
+    margin: 40px auto; /* Menambahkan margin di bagian atas dan bawah */
+    padding: 20px; /* Menambahkan padding di sekitar konten dalam section */
+    align-items: center;
+    justify-content: center;
 }
 
 .welcome-message h2 {
