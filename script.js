@@ -233,6 +233,63 @@ let currentQuestionIndex = 0;
 let score = 0;
 let questionResults = [];  // Array to store user's answer and the correct answer
 
+function showMateri() {
+    document.getElementById('home').classList.add('hidden');  // Sembunyikan elemen home
+    document.getElementById('materi').classList.add('active');  // Tampilkan elemen materi dengan menambahkan kelas 'active'
+    document.getElementById('materi').classList.remove('hidden');  // Hapus kelas 'hidden' dari elemen materi
+    document.getElementById('latihan').classList.add('hidden');  // Sembunyikan elemen latihan
+}
+
+// Fungsi untuk menampilkan halaman Latihan
+function showLatihan() {
+    document.getElementById('home').classList.add('hidden');  // Sembunyikan elemen home
+    document.getElementById('materi').classList.add('hidden');  // Sembunyikan elemen materi
+    document.getElementById('latihan').classList.add('active');  // Tampilkan elemen latihan dengan menambahkan kelas 'active'
+    document.getElementById('latihan').classList.remove('hidden');  // Hapus kelas 'hidden' dari elemen latihan
+}
+
+// Fungsi untuk memuat pelajaran dan materi yang relevan
+function loadPelajaran() {
+    const pelajaran = document.getElementById('pilihPelajaran').value;  // Ambil pelajaran yang dipilih dari dropdown
+    const materiSelect = document.getElementById('pilihMateri');  // Referensi ke dropdown materi
+    materiSelect.innerHTML = '';  // Kosongkan opsi sebelumnya di dropdown materi
+
+    let materiOptions = [];  // Buat array untuk menyimpan opsi materi
+
+    // Jika pelajaran adalah matematika, tambahkan opsi materi terkait matematika
+    if (pelajaran === 'matematika') {
+        materiOptions = [
+            { value: 'derivatif', text: 'Derivatif' },
+            { value: 'integral', text: 'Integral' }
+        ];
+    } else if (pelajaran === 'fisika') {
+        materiOptions = [
+            { value: 'hukumNewton', text: 'Hukum Newton' },
+            { value: 'gerakParabola', text: 'Gerak Parabola' }
+        ];
+    } else if (pelajaran === 'kimia') {
+        materiOptions = [
+            { value: 'reaksiKimia', text: 'Reaksi Kimia' },
+            { value: 'ikatanKimia', text: 'Ikatan Kimia' }
+        ];
+    }
+
+    // Tambahkan setiap opsi materi ke dropdown materi
+    materiOptions.forEach((option) => {
+        let opt = document.createElement('option');  // Buat elemen option baru
+        opt.value = option.value;  // Setel nilai option
+        opt.text = option.text;  // Setel teks yang akan ditampilkan di dropdown
+        materiSelect.add(opt);  // Tambahkan option ke dropdown
+    });
+
+    loadMateri();  // Panggil fungsi loadMateri untuk menampilkan materi yang dipilih
+}
+
+// Fungsi untuk menampilkan halaman Materi
+function showMateri() {
+    window.location.href = 'materials.html';  // Arahkan pengguna ke halaman materials.html
+}
+
 // Function to load quiz based on selected subject
 function loadQuiz(subject) {
     if (subject === 'matematika') {
