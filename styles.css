@@ -318,3 +318,54 @@ button.dark:hover {
     background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
+
+/* For tablets and small desktops */
+@media (max-width: 992px) {
+    .options, .subject-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Reduce the gap between elements */
+    }
+    
+    .welcome-message h2 {
+        font-size: 2rem; /* Reduce font size */
+    }
+    
+    .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+        font-size: 1rem; /* Smaller font size */
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 576px) {
+    .heart-icon {
+        width: 60px; /* Smaller logo */
+        height: 60px;
+    }
+    
+    .logo-container h1 {
+        font-size: 2rem; /* Smaller title */
+    }
+    
+    .welcome-message h2 {
+        font-size: 1.8rem; /* Further reduce font size */
+    }
+    
+    iframe {
+        width: 100%; /* Make iframes responsive */
+        height: auto;
+    }
+
+    .options, .subject-buttons {
+        width: 100%; /* Make buttons full-width */
+    }
+    
+    .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
+        width: 100%; /* Make buttons take up full width */
+        font-size: 0.9rem; /* Smaller font size */
+    }
+    
+    .description {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+}
