@@ -1,152 +1,152 @@
-/* General Styling */
+/* Styling Umum */
 html, body {
-    height: 100%; /* Memastikan elemen html dan body mengambil tinggi penuh dari viewport */
-    margin: 0; /* Menghilangkan margin default pada elemen body */
-    padding: 0; /* Menghilangkan padding default pada elemen body */
-    font-family: 'Poppins', sans-serif; /* Mengatur font utama yang digunakan pada halaman */
-    background-color: #fce4ec; /* Memberikan warna latar belakang pink lembut */
-    color: #333; /* Mengatur warna teks menjadi abu-abu gelap */
+    height: 100%; /* Mengatur elemen html dan body agar mengambil tinggi penuh dari viewport */
+    margin: 0; /* Menghapus margin default pada elemen body */
+    padding: 0; /* Menghapus padding default pada elemen body */
+    font-family: 'Poppins', sans-serif; /* Mengatur font utama halaman menggunakan Poppins */
+    background-color: #fce4ec; /* Warna latar belakang pink lembut */
+    color: #333; /* Warna teks abu-abu gelap */
     text-align: center; /* Menengahkan teks di halaman */
-    display: flex; /* Menggunakan flexbox untuk layout */
-    flex-direction: column; /* Mengatur arah layout flex menjadi kolom (vertikal) */
-    overflow-x: hidden;
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    flex-direction: column; /* Menyusun elemen dalam kolom vertikal */
+    overflow-x: hidden; /* Menghilangkan scroll horizontal */
 }
 
 body {
-    display: flex;
-    flex-direction: column; /* Konten di dalam body akan diatur secara vertikal */
-    overflow-x: hidden;
+    display: flex; /* Menjadikan body sebagai kontainer fleksibel */
+    flex-direction: column; /* Menyusun konten secara vertikal */
+    overflow-x: hidden; /* Menghilangkan scroll horizontal */
 }
 
 header {
-    background-color: #000000; /* Memberikan warna latar belakang hitam pada header */
-    color: #fce4ec; /* Memberikan warna teks pink lembut pada header */
-    padding: 20px; /* Memberikan jarak di sekitar konten dalam header */
-    margin-bottom: auto; /* Memastikan footer berada di bagian bawah */
-    width: 100%; /* Lebar penuh */
-    position: relative;
+    background-color: #000000; /* Warna latar belakang header hitam */
+    color: #fce4ec; /* Warna teks di header pink lembut */
+    padding: 20px; /* Jarak di sekitar konten header */
+    margin-bottom: auto; /* Menjaga footer tetap di bagian bawah */
+    width: 100%; /* Lebar penuh header */
+    position: relative; /* Menjadikan posisi elemen relatif */
 }
 
 .logo-container {
-    display: flex; /* Menggunakan flexbox untuk mengatur elemen di dalam logo-container */
+    display: flex; /* Menjadikan logo-container fleksibel */
     justify-content: center; /* Menengahkan elemen secara horizontal */
     align-items: center; /* Menengahkan elemen secara vertikal */
 }
 
 .logo-container h1 {
-    font-size: 3rem; /* Mengatur ukuran font judul menjadi besar */
-    margin-left: 15px; /* Memberikan jarak kiri pada judul agar tidak terlalu dekat dengan ikon */
+    font-size: 3rem; /* Ukuran font besar untuk judul */
+    margin-left: 15px; /* Memberikan jarak kiri pada judul */
 }
 
 .heart-icon {
-    width: 80px; /* Mengatur lebar ikon heart menjadi 80px */
-    height: 80px; /* Mengatur tinggi ikon heart menjadi 80px */
+    width: 80px; /* Lebar ikon hati */
+    height: 80px; /* Tinggi ikon hati */
 }
 
 section {
-    flex-grow: 1; /* Membuat elemen section berkembang untuk mengisi ruang yang tersedia */
-    margin: 40px auto; /* Menambahkan margin di bagian atas dan bawah */
-    padding: 20px; /* Menambahkan padding di sekitar konten dalam section */
-    align-items: center;
-    justify-content: center;
+    flex-grow: 1; /* Memperluas section agar mengisi ruang yang tersedia */
+    margin: 40px auto; /* Memberi jarak atas dan bawah serta menengahkan secara horizontal */
+    padding: 20px; /* Jarak di sekitar konten dalam section */
+    align-items: center; /* Menengahkan konten secara vertikal */
+    justify-content: center; /* Menengahkan konten secara horizontal */
 }
 
 .welcome-message h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem; /* Ukuran font heading utama */
-    margin-bottom: 10px; /* Memberikan jarak bawah setelah heading */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    font-size: 2.5rem; /* Ukuran font besar untuk judul */
+    margin-bottom: 10px; /* Jarak bawah pada judul */
     color: #000; /* Warna teks hitam */
 }
 
 .welcome-message p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem; /* Ukuran font untuk paragraf selamat datang */
-    color: #444; /* Warna teks abu-abu */
-    margin-bottom: 30px; /* Memberikan jarak bawah pada paragraf */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    font-size: 1.5rem; /* Ukuran font sedang untuk paragraf */
+    color: #444; /* Warna teks abu-abu sedang */
+    margin-bottom: 30px; /* Jarak bawah pada paragraf */
 }
 
 .options {
-    display: flex; /* Menggunakan flexbox untuk menata tombol pilihan */
+    display: flex; /* Menggunakan flexbox untuk tata letak tombol */
     justify-content: center; /* Menengahkan tombol secara horizontal */
     align-items: center; /* Menengahkan tombol secara vertikal */
-    gap: 20px; /* Memberikan jarak antar tombol */
+    gap: 20px; /* Jarak antar tombol */
 }
 
 .options button {
-    background-color: #000000; /* Warna latar belakang hitam untuk tombol */
+    background-color: #000000; /* Warna latar belakang tombol hitam */
     color: #fce4ec; /* Warna teks pink lembut */
-    border: none; /* Menghapus border default pada tombol */
+    border: none; /* Menghapus border tombol */
     padding: 15px 30px; /* Padding di dalam tombol */
-    margin: 10px; /* Margin di sekitar tombol */
+    margin: 10px; /* Jarak di sekitar tombol */
     font-size: 1.2rem; /* Ukuran font tombol */
     border-radius: 8px; /* Membuat ujung tombol melengkung */
-    cursor: pointer; /* Mengubah kursor menjadi pointer saat mouse berada di atas tombol */
-    transition: background-color 0.3s ease; /* Efek transisi saat background berubah */
+    cursor: pointer; /* Mengubah kursor saat hover menjadi pointer */
+    transition: background-color 0.3s ease; /* Efek transisi pada perubahan warna */
 }
 
 .options button:hover {
-    background-color: #fce4ec; /* Mengubah warna latar tombol menjadi pink lembut saat hover */
-    color: #000; /* Mengubah warna teks menjadi hitam saat hover */
+    background-color: #fce4ec; /* Warna latar tombol menjadi pink lembut saat hover */
+    color: #000; /* Warna teks menjadi hitam saat hover */
 }
 
-/* Styling tombol mata pelajaran untuk materials.html */
+/* Styling tombol mata pelajaran pada halaman materials.html */
 .subject-buttons {
-    display: flex; /* Menggunakan flexbox untuk menata tombol */
+    display: flex; /* Menggunakan flexbox untuk tata letak tombol */
     justify-content: center; /* Menengahkan tombol secara horizontal */
     align-items: center; /* Menengahkan tombol secara vertikal */
-    gap: 20px; /* Jarak antara tombol */
-    margin: 40px 0; /* Memberikan margin di atas dan bawah tombol */
+    gap: 20px; /* Jarak antar tombol */
+    margin: 40px 0; /* Margin atas dan bawah pada tombol */
 }
 
 .back-to-home {
-    display: flex; /* Menggunakan flexbox untuk menata tombol kembali ke home */
+    display: flex; /* Menggunakan flexbox untuk tata letak tombol */
     justify-content: center; /* Menengahkan tombol kembali ke home */
-    margin-top: 20px; /* Jarak atas untuk tombol kembali ke home */
+    margin-top: 20px; /* Jarak atas pada tombol kembali ke home */
     width: 100%; /* Lebar penuh */
-    position: relative;
+    position: relative; /* Posisi relatif */
 }
 
 .back-to-home button {
-    background-color: #000000; /* Warna latar belakang hitam */
+    background-color: #000000; /* Warna latar tombol hitam */
     color: #fce4ec; /* Warna teks pink lembut */
-    border: none; /* Menghapus border default */
+    border: none; /* Menghapus border tombol */
     padding: 15px 30px; /* Padding dalam tombol */
-    font-size: 1.2rem; /* Ukuran font */
+    font-size: 1.2rem; /* Ukuran font tombol */
     border-radius: 8px; /* Membuat ujung tombol melengkung */
-    cursor: pointer; /* Menampilkan kursor pointer saat hover */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
     display: flex; /* Flexbox untuk ikon dan teks */
-    align-items: center; /* Menengahkan ikon dan teks secara vertikal */
+    align-items: center; /* Menengahkan ikon dan teks dalam tombol */
     gap: 10px; /* Jarak antara ikon dan teks */
     transition: background-color 0.3s ease; /* Efek transisi saat hover */
 }
 
 .back-to-home button img {
-    width: 24px; /* Lebar ikon pada tombol */
+    width: 24px; /* Ukuran ikon pada tombol */
     height: 24px; /* Tinggi ikon pada tombol */
 }
 
 .back-to-home button:hover {
-    background-color: #fce4ec; /* Warna latar tombol saat hover */
-    color: #000; /* Warna teks saat hover */
+    background-color: #fce4ec; /* Warna latar tombol berubah saat hover */
+    color: #000; /* Warna teks berubah menjadi hitam saat hover */
 }
 
 .subject-buttons button {
-    background-color: #000000; /* Warna latar belakang hitam */
+    background-color: #000000; /* Warna latar tombol hitam */
     color: #fce4ec; /* Warna teks pink lembut */
-    border: none; /* Menghapus border */
-    padding: 15px 30px; /* Padding untuk tombol */
+    border: none; /* Menghapus border tombol */
+    padding: 15px 30px; /* Padding dalam tombol */
     font-size: 1.2rem; /* Ukuran font tombol */
     border-radius: 8px; /* Membuat ujung tombol melengkung */
-    cursor: pointer; /* Menampilkan kursor pointer saat hover */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
     display: flex; /* Flexbox untuk ikon dan teks */
-    align-items: center; /* Menengahkan ikon dan teks secara vertikal */
+    align-items: center; /* Menengahkan ikon dan teks dalam tombol */
     gap: 10px; /* Jarak antara ikon dan teks */
-    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi pada hover */
 }
 
 .subject-buttons button img {
     width: 24px; /* Ukuran ikon tombol */
-    height: 24px; /* Ukuran ikon tombol */
+    height: 24px; /* Tinggi ikon tombol */
 }
 
 .hidden {
@@ -154,39 +154,38 @@ section {
 }
 
 .description {
-    max-width: 560px; /* Sesuaikan lebar maksimal agar teks terpecah menjadi dua baris */
-    margin: 0 auto 20px auto; /* Agar tetap berada di tengah */
-    text-align: center; /* Opsional, bisa untuk membuat teks rata kiri */
+    max-width: 560px; /* Lebar maksimal agar teks terbagi dalam dua baris */
+    margin: 0 auto 20px auto; /* Menjaga elemen tetap di tengah */
+    text-align: center; /* Teks rata tengah */
 }
 
-/* Hover pada tombol mata pelajaran */
 .subject-buttons button:hover {
-    background-color: #fce4ec; /* Mengubah latar belakang saat hover menjadi pink lembut */
-    color: #000; /* Mengubah teks menjadi hitam saat hover */
+    background-color: #fce4ec; /* Warna latar tombol berubah saat hover */
+    color: #000; /* Warna teks berubah menjadi hitam saat hover */
 }
 
-/* Footer tetap di bagian bawah */
+/* Footer di bagian bawah */
 footer {
-    background-color: #000000; /* Warna latar belakang hitam */
+    background-color: #000000; /* Warna latar footer hitam */
     color: #fce4ec; /* Warna teks pink lembut */
-    padding: 20px; /* Padding di sekitar konten footer */
-    font-size: 1rem; /* Ukuran font di dalam footer */
+    padding: 20px; /* Padding pada konten footer */
+    font-size: 1rem; /* Ukuran font footer */
     margin-top: auto; /* Memastikan footer berada di bagian bawah */
     width: 100%; /* Lebar penuh */
-    position: relative;
+    position: relative; /* Posisi relatif */
 }
 
-/* Pengaturan untuk tombol dan elemen ikonik */
+/* Pengaturan untuk tombol dan ikon */
 button {
-    display: flex; /* Flexbox untuk tombol */
-    align-items: center; /* Menengahkan ikon dan teks dalam tombol secara vertikal */
-    justify-content: center; /* Menengahkan ikon dan teks secara horizontal */
+    display: flex; /* Flexbox untuk tata letak tombol */
+    align-items: center; /* Menengahkan ikon dan teks */
+    justify-content: center; /* Menengahkan ikon dan teks */
     gap: 10px; /* Jarak antara ikon dan teks */
 }
 
 button img {
     width: 24px; /* Ukuran ikon */
-    height: 24px; /* Ukuran ikon */
+    height: 24px; /* Tinggi ikon */
 }
 
 /* Dark theme styling */
@@ -196,21 +195,17 @@ body.dark {
 }
 
 header.dark {
-    background-color: #fce4ec; /* Warna latar belakang pink untuk dark mode */
-    color: black; /* Warna teks hitam untuk dark mode */
-}
-
-nav ul li a.dark {
-    color: black; /* Warna teks hitam untuk link di dark mode */
+    background-color: #fce4ec; /* Warna latar pink untuk header di dark mode */
+    color: black; /* Warna teks hitam di dark mode */
 }
 
 section.dark {
-    background-color: #000000; /* Warna latar belakang hitam untuk dark mode */
-    color: #fce4ec; /* Warna teks pink lembut untuk dark mode */
+    background-color: #000000; /* Warna latar section hitam di dark mode */
+    color: #fce4ec; /* Warna teks pink lembut di dark mode */
 }
 
 footer.dark {
-    background-color: #fce4ec; /* Warna latar belakang pink untuk dark mode */
+    background-color: #fce4ec; /* Warna latar belakang pink untuk footer di dark mode */
     color: black; /* Warna teks hitam untuk dark mode */
 }
 
@@ -220,7 +215,7 @@ button.dark {
 }
 
 button.dark:hover {
-    background-color: #000000; /* Warna latar belakang hitam saat hover di dark mode */
+    background-color: #000000; /* Warna latar belakang tombol hitam saat hover di dark mode */
     color: #fce4ec; /* Warna teks pink lembut saat hover di dark mode */
 }
 
@@ -229,41 +224,31 @@ button.dark:hover {
     background-color: #ffffff; /* Warna latar belakang putih untuk konten kuis */
     border-radius: 10px; /* Membuat sudut-sudut konten kuis melengkung */
     padding: 30px; /* Menambahkan jarak di dalam konten kuis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan halus di sekitar konten kuis */
-    max-width: 600px; /* Membatasi lebar maksimum konten kuis */
-    margin: 20px auto; /* Memberikan margin atas dan bawah, serta menengahkan konten kuis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan lembut di sekitar konten kuis */
+    max-width: 600px; /* Lebar maksimum konten kuis */
+    margin: 20px auto; /* Menengahkan dan menambahkan margin atas dan bawah pada konten kuis */
     text-align: left; /* Mengatur teks agar rata kiri */
 }
 
 #quizContent h3 {
-    font-size: 2rem; /* Mengatur ukuran font heading di dalam konten kuis */
+    font-size: 2rem; /* Ukuran font heading dalam konten kuis */
     color: #333; /* Warna teks abu-abu gelap untuk heading */
-    margin-bottom: 20px; /* Jarak bawah heading */
-    margin-top: 0px;
+    margin-bottom: 20px; /* Jarak bawah pada heading */
+    margin-top: 0px; /* Menghilangkan jarak atas pada heading */
 }
 
 #quizContent p {
-    font-size: 1.2rem; /* Mengatur ukuran font untuk pertanyaan kuis */
-    margin-bottom: 10px; /* Menambahkan jarak bawah untuk paragraf */
+    font-size: 1.2rem; /* Ukuran font untuk pertanyaan kuis */
+    margin-bottom: 10px; /* Jarak bawah pada paragraf */
 }
 
 #quizContent input[type="radio"] {
-    margin-right: 10px; /* Memberikan jarak antara input radio dengan label */
+    margin-right: 10px; /* Jarak antara input radio dengan label */
 }
 
 #quizContent label {
-    font-size: 1.1rem; /* Ukuran font untuk label kuis */
-    color: #444; /* Warna teks abu-abu sedang untuk label */
-}
-
-#quizContent {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: left;
+    font-size: 1.1rem; /* Ukuran font label kuis */
+    color: #444; /* Warna teks abu-abu untuk label */
 }
 
 .submit-button {
@@ -274,7 +259,7 @@ button.dark:hover {
     font-size: 1.2rem; /* Ukuran font pada tombol */
     border-radius: 8px; /* Membuat sudut tombol melengkung */
     cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
-    margin-top: 20px; /* Jarak atas tombol */
+    margin-top: 20px; /* Jarak atas pada tombol */
     display: block; /* Menampilkan tombol sebagai blok */
     margin-left: auto; /* Menengahkan tombol secara horizontal */
     margin-right: auto; /* Menengahkan tombol secara horizontal */
@@ -282,30 +267,30 @@ button.dark:hover {
 }
 
 .submit-button:hover {
-    background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
+    background-color: #fce4ec; /* Warna latar belakang tombol menjadi pink lembut saat hover */
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
 
-/* Hint button positioned in the top-right corner of the quiz card */
+/* Tombol hint berada di pojok kanan atas kartu kuis */
 .hint-button {
-    position: absolute;  /* Position it relative to the quiz card */
-    top: 10px;           /* Distance from the top */
-    right: 10px;         /* Distance from the right */
-    background: none;    /* Remove background */
-    border: none;        /* Remove borders */
-    padding: 0;          /* No padding */
-    cursor: pointer;     /* Pointer on hover */
-    display: flex;       /* Ensure the button behaves like a flexible container */
+    position: absolute; /* Menentukan posisi tombol hint relatif terhadap konten kuis */
+    top: 10px; /* Jarak dari atas */
+    right: 10px; /* Jarak dari kanan */
+    background: none; /* Menghapus latar belakang */
+    border: none; /* Menghapus border */
+    padding: 0; /* Menghapus padding */
+    cursor: pointer; /* Kursor berubah menjadi pointer saat hover */
+    display: flex; /* Flexbox untuk menata ikon dalam tombol */
 }
 
 .hint-button img {
-    width: 40px;         /* Initial size of the bulb icon */
-    height: 40px;        /* Initial size of the bulb icon */
-    transition: transform 0.3s ease;  /* Add smooth scaling effect on hover */
+    width: 40px; /* Ukuran awal ikon bola lampu */
+    height: 40px; /* Ukuran awal ikon bola lampu */
+    transition: transform 0.3s ease; /* Efek transformasi halus saat hover */
 }
 
 .hint-button:hover img {
-    transform: scale(1.5); /* Slight enlargement on hover */
+    transform: scale(1.5); /* Memperbesar ikon saat hover */
 }
 
 .restart-button {
@@ -320,61 +305,61 @@ button.dark:hover {
     margin-left: auto; /* Menengahkan tombol secara horizontal */
     margin-right: auto; /* Menengahkan tombol secara horizontal */
     transition: background-color 0.3s ease; /* Efek transisi saat warna tombol berubah */
-    margin-top: 20px; /* Tambahkan sedikit jarak atas */
+    margin-top: 20px; /* Tambahkan jarak atas */
 }
 
 .restart-button:hover {
-    background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
+    background-color: #fce4ec; /* Warna latar belakang tombol menjadi pink lembut saat hover */
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
 
-/* For tablets and small desktops */
+/* Untuk tablet dan desktop kecil */
 @media (max-width: 992px) {
     .options, .subject-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 10px; /* Reduce the gap between elements */
+        flex-direction: column; /* Menyusun tombol secara vertikal */
+        gap: 10px; /* Mengurangi jarak antar elemen */
     }
     
     .welcome-message h2 {
-        font-size: 2rem; /* Reduce font size */
+        font-size: 2rem; /* Mengurangi ukuran font */
     }
     
     .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
-        padding: 10px 20px; /* Adjust padding for smaller screens */
-        font-size: 1rem; /* Smaller font size */
+        padding: 10px 20px; /* Menyesuaikan padding untuk layar lebih kecil */
+        font-size: 1rem; /* Ukuran font lebih kecil */
     }
 }
 
-/* For mobile devices */
+/* Untuk perangkat mobile */
 @media (max-width: 576px) {
     .heart-icon {
-        width: 60px; /* Smaller logo */
+        width: 60px; /* Mengubah ukuran ikon menjadi lebih kecil */
         height: 60px;
     }
     
     .logo-container h1 {
-        font-size: 2rem; /* Smaller title */
+        font-size: 2rem; /* Mengubah ukuran judul menjadi lebih kecil */
     }
     
     .welcome-message h2 {
-        font-size: 1.8rem; /* Further reduce font size */
+        font-size: 1.8rem; /* Mengurangi ukuran font */
     }
     
     iframe {
-        width: 100%; /* Make iframes responsive */
+        width: 100%; /* Menjadikan iframe responsif */
         height: auto;
     }
 
     .options, .subject-buttons {
-        width: 100%; /* Make buttons full-width */
+        width: 100%; /* Tombol melebar penuh */
     }
     
     .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
-        width: 100%; /* Make buttons take up full width */
-        font-size: 0.9rem; /* Smaller font size */
+        width: 100%; /* Tombol mengambil lebar penuh */
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
     }
     
     .description {
-        padding: 10px; /* Less padding on smaller screens */
+        padding: 10px; /* Mengurangi padding pada layar kecil */
     }
 }

@@ -3,19 +3,15 @@
 <!-- Deklarasi tipe dokumen HTML dan bahasa halaman, yaitu "en" (English) -->
 <head>
     <meta charset="UTF-8">
-    <!-- Menetapkan karakter encoding menjadi UTF-8 untuk mendukung berbagai karakter -->
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Menyediakan dukungan responsif, agar sesuai dengan layar perangkat mobile -->
-    
     <title>Learnbyheart</title>
-    <!-- Judul halaman yang akan ditampilkan pada tab browser -->
-
     <link rel="stylesheet" href="styles.css">
-    <!-- Menghubungkan halaman dengan file CSS eksternal untuk styling -->
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Menghubungkan dengan font "Poppins" dari Google Fonts -->
+    <script>
+        if (!localStorage.getItem("userLoggedIn")) {
+            window.location.href = "auth.html";
+        }
+    </script>
 </head>
 
 <body>
