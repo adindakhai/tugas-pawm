@@ -60,7 +60,11 @@
         <p>Learnbyheart © 2024</p>
         <!-- Teks copyright -->
     </footer>
-
+    <script>
+        if (!localStorage.getItem("userLoggedIn")) {
+            window.location.href = "auth.html";
+        }
+    </script>        
     <script src="script.js"></script>
     <!-- Menghubungkan halaman ini dengan file JavaScript eksternal untuk fungsi interaktif -->
 </body>

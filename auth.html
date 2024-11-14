@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login/Register - Learnbyheart</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="auth-styles.css"> <!-- Tambahkan di sini -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    </head>    
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Register - Learnbyheart</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <div class="logo-container">
-            <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
-            <h1>Learnbyheart</h1>
-        </div>
+      <div class="logo-container">
+        <img src="assets/heart.png" alt="Heart Icon" class="heart-icon" />
+        <h1>Learnbyheart</h1>
+      </div>
     </header>
 
     <section id="auth-section">
-        <div class="auth-container">
-            <div class="tabs">
-                <button id="login-tab" class="active" onclick="showLoginForm()">Login</button>
-                <button id="register-tab" onclick="showRegisterForm()">Register</button>
-            </div>
-
-            <!-- Login Form -->
-            <div id="login-form" class="form-container">
-                <h2>Login to Your Account</h2>
-                <form id="login" onsubmit="handleLogin(event)">
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit" class="auth-button">Login</button>
-                </form>
-                <div class="oauth-container">
-                    <p>Or login with:</p>
-                    <button class="oauth-button" onclick="loginWithGoogle()">
-                        <img src="assets/google-icon.png" alt="Google Icon"> Google
-                    </button>
-                </div>
-            </div>
-
-            <!-- Register Form -->
-            <div id="register-form" class="form-container hidden">
-                <h2>Create a New Account</h2>
-                <form id="register" onsubmit="handleRegister(event)">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
-                    <button type="submit" class="auth-button">Register</button>
-                </form>
-                <div class="oauth-container">
-                    <p>Or register with:</p>
-                    <button class="oauth-button" onclick="registerWithGoogle()">
-                        <img src="assets/google-icon.png" alt="Google Icon"> Google
-                    </button>
-                </div>
-            </div>
+      <div class="auth-container">
+        <div class="tabs">
+          <button id="login-tab" class="active" onclick="showLoginForm()">
+            Login
+          </button>
+          <button id="register-tab" onclick="showRegisterForm()">
+            Register
+          </button>
         </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-container">
+          <h2>Login to Your Account</h2>
+          <form id="login">
+            <input type="email" id="login-email" placeholder="Email" required />
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Password"
+              required
+            />
+            <button type="submit" class="auth-button">Login</button>
+          </form>
+          <div class="oauth-container">
+            <p>Or login with:</p>
+            <button class="oauth-button" onclick="loginWithGoogle()">
+              <img src="assets/google-icon.png" alt="Google Icon" /> Google
+            </button>
+          </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="form-container hidden">
+          <h2>Create a New Account</h2>
+          <form id="register">
+            <input
+              type="text"
+              id="register-name"
+              placeholder="Full Name"
+              required
+            />
+            <input type="email" id="register-email" placeholder="Email" required />
+            <input
+              type="password"
+              id="register-password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              id="register-confirm-password"
+              placeholder="Confirm Password"
+              required
+            />
+            <button type="submit" class="auth-button">Register</button>
+          </form>
+          <div class="oauth-container">
+            <p>Or register with:</p>
+            <button class="oauth-button" onclick="registerWithGoogle()">
+              <img src="assets/google-icon.png" alt="Google Icon" /> Google
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
-        <p>Learnbyheart © 2024</p>
+      <p>Learnbyheart © 2024</p>
     </footer>
 
     <script>
-        function showLoginForm() {
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('register-form').classList.add('hidden');
-            document.getElementById('login-tab').classList.add('active');
-            document.getElementById('register-tab').classList.remove('active');
-        }
+      function showLoginForm() {
+        document.getElementById('login-form').classList.remove('hidden');
+        document.getElementById('register-form').classList.add('hidden');
+        document.getElementById('login-tab').classList.add('active');
+        document.getElementById('register-tab').classList.remove('active');
+      }
 
-        function showRegisterForm() {
-            document.getElementById('register-form').classList.remove('hidden');
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('register-tab').classList.add('active');
-            document.getElementById('login-tab').classList.remove('active');
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            // Add your authentication logic here
-            // After successful login, redirect to the home page
-            window.location.href = 'index.html';
-        }
-
-        function handleRegister(event) {
-            event.preventDefault();
-            // Add your registration logic here
-            // After successful registration, redirect to the home page
-            window.location.href = 'index.html';
-        }
+      function showRegisterForm() {
+        document.getElementById('register-form').classList.remove('hidden');
+        document.getElementById('login-form').classList.add('hidden');
+        document.getElementById('register-tab').classList.add('active');
+        document.getElementById('login-tab').classList.remove('active');
+      }
     </script>
-</body>
+    <script type="module" src="auth.js" defer></script>
+  </body>
 </html>
