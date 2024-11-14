@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Deklarasi tipe dokumen HTML dan bahasa halaman, yaitu "en" (English) -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,56 +15,79 @@
 
 <body>
     <header>
-        <!-- Bagian header halaman yang biasanya berisi logo dan judul -->
         <div class="logo-container">
-            <!-- Kontainer untuk logo dan judul -->
             <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
-            <!-- Gambar logo (icon hati) yang diambil dari folder assets -->
-
             <h1>Learnbyheart</h1>
-            <!-- Judul website ditampilkan di sini -->
+        </div>
+        <div class="account-button" onclick="toggleAccountSettings()">
+            <img src="assets/settings.png" alt="User Icon" class="user-icon">
+            <span>Account</span>
         </div>
     </header>
 
-    <!-- Halaman Home (Lobby) -->
-    <section id="home" class="active">
-        <!-- Section utama berisi konten halaman home, dengan ID "home" dan class "active" -->
-
-        <div class="welcome-message">
-            <!-- Bagian pesan sambutan pengguna -->
-            <h2>Welcome to Learnbyheart!</h2>
-            <!-- Teks sambutan utama -->
-            <p>Learn with passion, practice with heart.</p>
-            <!-- Kalimat motivasi untuk pengguna -->
+    <div id="account-settings" class="account-settings hidden">
+        <div class="profile-info">
+            <img id="profile-picture" src="assets/default-avatar.png" alt="Profile Picture" class="profile-picture" />
+            <p><strong>Email:</strong> <span id="user-email">user@example.com</span></p>
         </div>
+        <div class="account-actions">
+            <button onclick="changeProfilePicture()">Change Picture</button>
+            <button onclick="checkProgress()">Check Progress</button>
+            <button onclick="handleLogout()">Log Out</button>
+        </div>
+    </div>
 
+    <section id="home" class="active">
+        <div class="welcome-message">
+            <h2>Welcome to Learnbyheart!</h2>
+            <p>Learn with passion, practice with heart.</p>
+        </div>
         <div class="options">
-            <!-- Bagian untuk tombol opsi yang mengarahkan ke halaman lain -->
             <button onclick="showMateri()">
-                <!-- Tombol untuk menampilkan materi (dijalankan fungsi JavaScript "showMateri") -->
                 <img src="assets/book.png" alt="Materials Icon">Explore Materials
-                <!-- Gambar ikon buku diambil dari folder assets dan teks tombol -->
             </button>
-
             <button onclick="window.location.href='practice.html'">
-                <!-- Tombol untuk mengarahkan ke halaman latihan soal (practice.html) -->
                 <img src="assets/pencil.png" alt="Practice Icon">Practice Questions
-                <!-- Gambar ikon pensil diambil dari folder assets dan teks tombol -->
-            </button>            
+            </button>
         </div>
     </section>
 
     <footer>
-        <!-- Bagian footer halaman, biasanya berisi copyright atau informasi tambahan -->
         <p>Learnbyheart © 2024</p>
-        <!-- Teks copyright -->
     </footer>
-    <script>
-        if (!localStorage.getItem("userLoggedIn")) {
-            window.location.href = "auth.html";
-        }
-    </script>        
+    <script type="module" src="auth.js" defer></script>
     <script src="script.js"></script>
-    <!-- Menghubungkan halaman ini dengan file JavaScript eksternal untuk fungsi interaktif -->
+    <script>
+        function toggleAccountSettings() {
+            const accountSettings = document.getElementById('account-settings');
+            accountSettings.classList.toggle('hidden');
+        }
+
+        function changeProfilePicture() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*'; 
+            input.onchange = function () {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById('profile-picture').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
+
+        function checkProgress() {
+            alert('Feature to check progress coming soon!');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('userLoggedIn');
+            window.location.href = 'auth.html';
+        }
+    </script>
 </body>
 </html>

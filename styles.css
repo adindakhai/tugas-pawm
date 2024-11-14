@@ -334,6 +334,103 @@ button.dark:hover {
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
 
+.account-button {
+    position: absolute; /* Mengatur posisi absolut */
+    top: 20px; /* Jarak dari atas */
+    right: 20px; /* Jarak dari kanan */
+    display: flex; /* Menyusun ikon dan teks secara fleksibel */
+    align-items: center; /* Menengahkan ikon dan teks secara vertikal */
+    cursor: pointer; /* Mengubah kursor menjadi pointer saat hover */
+    padding: 10px; /* Padding di sekitar tombol */
+    background-color: #000; /* Warna latar belakang tombol */
+    color: #fce4ec; /* Warna teks tombol */
+    border-radius: 8px; /* Membuat sudut tombol melengkung */
+    transition: background-color 0.3s ease; /* Efek transisi pada hover */
+    margin-right: 70px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.account-button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.account-settings {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1000;
+}
+
+.account-settings.hidden {
+    display: none;
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    margin-bottom: 10px;
+    object-fit: cover;
+    background-color: #f0f0f0; /* Placeholder background color */
+}
+
+.profile-info button {
+    background-color: #000;
+    color: #fce4ec;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-info button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-actions button {
+    background-color: #000;
+    color: #fce4ec;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-actions button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
 /* Untuk tablet dan desktop kecil */
 @media (max-width: 992px) {
     .options, .subject-buttons {
@@ -384,3 +481,5 @@ button.dark:hover {
         padding: 10px; /* Mengurangi padding pada layar kecil */
     }
 }
+
+/* Styling for Account Settings */
