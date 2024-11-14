@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Menetapkan karakter encoding sebagai UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Memastikan halaman responsif untuk berbagai perangkat -->
-    <title>Practice - Learnbyheart</title> <!-- Judul halaman -->
-    <link rel="stylesheet" href="styles.css"> <!-- Menghubungkan file CSS untuk styling -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsiveness across devices -->
+    <title>Practice - Learnbyheart</title> <!-- Page Title -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file for styling -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <!-- Menampilkan ikon hati sebagai logo -->
+            <!-- Display the heart icon as the logo -->
             <img src="assets/heart.png" alt="Heart Icon" class="heart-icon">
-            <!-- Judul besar yang menampilkan nama situs -->
+            <!-- Main title displaying the website name -->
             <h1>Learnbyheart</h1>
         </div>
     </header>
 
-    <!-- Bagian Latihan Soal -->
+    <!-- Quiz Practice Section -->
     <section id="practice">
-        <h2>Select a Subject for Quizzes</h2> <!-- Judul untuk memilih mata pelajaran -->
-        
-        <!-- Tombol pilihan mata pelajaran -->
+        <h2>Select a Subject for Quizzes</h2> <!-- Title for selecting the subject -->
+
+        <!-- Subject selection buttons -->
         <div class="subject-buttons">
-            <!-- Tombol untuk memuat kuis Matematika -->
-            <button onclick="loadQuiz('matematika')">
+            <!-- Button to start the Mathematics quiz -->
+            <button class="subject-button" data-subject="matematika">
                 <img src="assets/calculator.png" alt="Mathematics Icon">Mathematics
             </button>
-            <!-- Tombol untuk memuat kuis Fisika -->
-            <button onclick="loadQuiz('fisika')">
+            <!-- Button to start the Physics quiz -->
+            <button class="subject-button" data-subject="fisika">
                 <img src="assets/gravity.png" alt="Physics Icon">Physics
             </button>
-            <!-- Tombol untuk memuat kuis Kimia -->
-            <button onclick="loadQuiz('kimia')">
+            <!-- Button to start the Chemistry quiz -->
+            <button class="subject-button" data-subject="kimia">
                 <img src="assets/periodic-table.png" alt="Chemistry Icon">Chemistry
             </button>
         </div>
 
-        <div id="quizContent" class="hidden"></div> <!-- The quiz will be displayed here -->
-
-        <!-- Div kosong yang akan diisi konten kuis -->
+        <!-- Container where the quiz will be displayed -->
         <div id="quizContent" class="hidden"></div>
     </section>
 
-    <!-- Footer halaman -->
+    <!-- Page Footer -->
     <footer>
-        <p>Learnbyheart © 2024</p> <!-- Copyright untuk situs -->
+        <p>Learnbyheart © 2024</p> <!-- Copyright -->
         
-        <!-- Tombol "Back to Home" untuk kembali ke halaman utama -->
+        <!-- "Back to Home" button to return to the main page -->
         <div class="back-to-home">
             <button onclick="window.location.href='index.html'">
                 <img src="assets/left-chevron.png" alt="Home Icon">Back to Home
@@ -55,7 +53,7 @@
         </div>
     </footer>
 
-    <!-- Menghubungkan file JavaScript -->
+    <!-- Script file -->
     <script src="script.js"></script>
 </body>
 </html>
