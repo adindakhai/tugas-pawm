@@ -4,7 +4,8 @@ import {
   getAuth, 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
-  signOut 
+  signOut, 
+  onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { 
   getFirestore, 
@@ -141,6 +142,20 @@ window.handleLogout = function handleLogout() {
       alert(`Logout failed: ${error.message}`);
     });
 }
+
+// Check auth state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is logged in
+    console.log('User is logged in:', user);
+  } else {
+    // User is logged out
+    console.log('User is logged out');
+    if (window.location.pathname !== '/auth.html') {
+      window.location.href = 'auth.html'; // Redirect to login page if not authenticated
+    }
+  }
+});
 
 // Event listener for registration form submission
 document.getElementById('register').addEventListener('submit', handleRegister);
