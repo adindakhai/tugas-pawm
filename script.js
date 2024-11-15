@@ -536,10 +536,6 @@ const questionBanks = {
     alert("Feature to check progress coming soon!");
   }
   
-  function handleLogout() {
-    localStorage.removeItem("userLoggedIn");
-    window.location.href = "auth.html";
-  }
   
   // Page navigation functions
   function showMaterialsPage() {

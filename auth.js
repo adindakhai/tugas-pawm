@@ -3,19 +3,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { 
   getAuth, 
   createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword 
+  signInWithEmailAndPassword, 
+  signOut 
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { 
-  getDatabase, 
-  ref, 
-  set 
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+  getFirestore, 
+  doc, 
+  setDoc 
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDuqUPS58ExVwVTxzzSCTeYmTh7w397j9M",
   authDomain: "learnbyheart-c8a90.firebaseapp.com",
-  databaseURL: "https://learnbyheart-c8a90-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "learnbyheart-c8a90",
   storageBucket: "learnbyheart-c8a90.firebasestorage.app",
   messagingSenderId: "518367347168",
@@ -25,7 +25,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getDatabase(app);
+const db = getFirestore(app);
 
 // Helper function to validate email
 function isValidEmail(email) {
@@ -71,8 +71,8 @@ function handleRegister(event) {
       const user = userCredential.user;
       console.log('Registration successful:', user);
 
-      // Save user data to the database
-      return set(ref(db, 'users/' + user.uid), {
+      // Save user data to Firestore
+      return setDoc(doc(db, 'users', user.uid), {
         name: name,
         email: email,
         uid: user.uid
@@ -81,7 +81,6 @@ function handleRegister(event) {
     .then(() => {
       // Data saved successfully
       alert("Registration successful!");
-      localStorage.setItem("userLoggedIn", "true"); // Set user as logged in
       window.location.href = 'index.html'; // Redirect to index.html
     })
     .catch((error) => {
@@ -113,7 +112,6 @@ function handleLogin(event) {
     .then((userCredential) => {
       // Login successful
       console.log('Login successful:', userCredential);
-      localStorage.setItem("userLoggedIn", "true"); // Save login status
       window.location.href = 'index.html'; // Redirect to the main page
     })
     .catch((error) => {
@@ -127,6 +125,20 @@ function handleLogin(event) {
       } else {
         alert(`Login failed: ${error.message}`);
       }
+    });
+}
+
+// Handle logout
+window.handleLogout = function handleLogout() {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful
+      console.log('Logout successful');
+      window.location.href = 'auth.html'; // Redirect to the login page
+    })
+    .catch((error) => {
+      console.error('Logout failed:', error);
+      alert(`Logout failed: ${error.message}`);
     });
 }
 
