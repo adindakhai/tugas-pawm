@@ -1,0 +1,122 @@
+/* Styling for Progress Page */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    background-color: #000000;
+    color: #fce4ec;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container h1 {
+    font-size: 2.5rem;
+    margin-left: 15px;
+}
+
+.heart-icon {
+    width: 60px;
+    height: 60px;
+}
+
+section#progress {
+    flex-grow: 1;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+section#progress h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+#progress-container.three-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.subject-progress {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 30%;
+    position: relative;
+}
+
+.subject-progress h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.subject-progress p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.progress-stats {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4caf50;
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #000000;
+    color: #fce4ec;
+    padding: 20px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.back-to-home {
+    margin-top: 20px;
+}
+
+.back-to-home button {
+    background-color: #000000;
+    color: #fce4ec;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-home button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+.back-to-home button img {
+    width: 24px;
+    height: 24px;
+}

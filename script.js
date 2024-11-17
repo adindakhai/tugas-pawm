@@ -533,7 +533,7 @@ const questionBanks = {
   }
   
   function checkProgress() {
-    alert("Feature to check progress coming soon!");
+    window.location.href = 'progress.html';
   }
   
   
