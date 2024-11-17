@@ -541,4 +541,31 @@ const questionBanks = {
   function showMaterialsPage() {
     window.location.href = "materials.html"; // Redirect user to materials.html
   }
-  
+
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded, starting to create bubbles..."); // Untuk mengecek apakah DOM sudah termuat
+
+    const bubbleContainer = document.getElementById('bubble-container');
+
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+
+        // Set random properties
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.width = `${Math.random() * 20 + 10}px`;
+        bubble.style.height = bubble.style.width;
+        bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+
+        // Append bubble to container
+        bubbleContainer.appendChild(bubble);
+
+        // Remove bubble after animation
+        setTimeout(() => {
+            bubble.remove();
+        }, 10000);
+    }
+
+    // Create bubbles at random intervals
+    setInterval(createBubble, 500);
+});

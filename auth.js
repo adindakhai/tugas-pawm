@@ -10,7 +10,8 @@ import {
 import { 
   getFirestore, 
   doc, 
-  setDoc 
+  setDoc, 
+  getDoc
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -144,10 +145,15 @@ window.handleLogout = function handleLogout() {
 }
 
 // Check auth state
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
     // User is logged in
     console.log('User is logged in:', user);
+    const userDocRef = doc(db, 'users', user.uid);
+    const userDocSnap = await getDoc(userDocRef);
+    const userName = userDocSnap.data().name;
+    document.getElementById('user-name').textContent = userName;
+
   } else {
     // User is logged out
     console.log('User is logged out');
@@ -162,3 +168,38 @@ document.getElementById('register').addEventListener('submit', handleRegister);
 
 // Event listener for login form submission
 document.getElementById('login').addEventListener('submit', handleLogin);
+
+document.addEventListener('DOMContentLoaded', function () {
+  const bubbleContainerAuth = document.getElementById('bubble-container-auth');
+  const symbols = ['+', '-', '=', 'π', '∞', '√', 'Σ', '∫', '∑', '∆'];
+
+  function createBubbleAuth() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble-auth');
+
+      // Randomly decide if bubble is heart or circle
+      if (Math.random() > 0.7) {
+          bubble.classList.add('heart');
+      }
+
+      // Set random properties
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.width = `${Math.random() * 20 + 40}px`;
+      bubble.style.height = bubble.style.width;
+      bubble.style.animationDuration = `${Math.random() * 5 + 7}s`;
+
+      // Add random symbol to bubble
+      bubble.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+      // Append bubble to container
+      bubbleContainerAuth.appendChild(bubble);
+
+      // Remove bubble after animation
+      setTimeout(() => {
+          bubble.remove();
+      }, 12000);
+  }
+
+  // Create bubbles at random intervals
+  setInterval(createBubbleAuth, 800);
+});
