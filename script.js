@@ -420,6 +420,7 @@ function showMathQuizResults() {
         <p>You answered ${score} out of 5 questions correctly.</p>
         <button onclick="startMathQuiz()">Restart Quiz</button>
     `;
+<<<<<<< Updated upstream
 }
 
 function showChemistryQuizResults() {
@@ -458,3 +459,74 @@ function loadChemistryQuiz() {
     `;
     document.getElementById('quizContent').classList.remove('hidden');
 }
+=======
+  
+    quizContainer.innerHTML = resultHTML;
+  }
+  
+  // Utility function to capitalize the first letter of a string (for displaying subject names)
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  
+  // Additional UI and authentication functionalities (if needed)
+  function toggleAccountSettings() {
+    const accountSettings = document.getElementById("account-settings");
+    accountSettings.classList.toggle("hidden");
+  }
+  
+  function changeProfilePicture() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = function () {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById("profile-picture").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+    input.click();
+  }
+  
+  function checkProgress() {
+    alert("Feature to check progress coming soon!");
+  }
+  
+  
+  // Page navigation functions
+  function showMaterialsPage() {
+    window.location.href = "materials.html"; // Redirect user to materials.html
+  }
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded, starting to create bubbles..."); // Untuk mengecek apakah DOM sudah termuat
+
+    const bubbleContainer = document.getElementById('bubble-container');
+
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+
+        // Set random properties
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.width = `${Math.random() * 20 + 10}px`;
+        bubble.style.height = bubble.style.width;
+        bubble.style.animationDuration = `${Math.random() * 5 + 5}s`;
+
+        // Append bubble to container
+        bubbleContainer.appendChild(bubble);
+
+        // Remove bubble after animation
+        setTimeout(() => {
+            bubble.remove();
+        }, 10000);
+    }
+
+    // Create bubbles at random intervals
+    setInterval(createBubble, 500);
+});
+>>>>>>> Stashed changes

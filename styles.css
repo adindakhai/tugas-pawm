@@ -49,20 +49,34 @@ section {
     font-size: 2.5rem; /* Ukuran font heading utama */
     margin-bottom: 10px; /* Memberikan jarak bawah setelah heading */
     color: #000; /* Warna teks hitam */
+    z-index: 2;
 }
 
 .welcome-message p {
+<<<<<<< Updated upstream
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem; /* Ukuran font untuk paragraf selamat datang */
     color: #444; /* Warna teks abu-abu */
     margin-bottom: 30px; /* Memberikan jarak bawah pada paragraf */
+=======
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    font-size: 1.5rem; /* Ukuran font sedang untuk paragraf */
+    color: #444; /* Warna teks abu-abu sedang */
+    margin-bottom: 30px; /* Jarak bawah pada paragraf */
+    z-index: 2;
+>>>>>>> Stashed changes
 }
 
 .options {
     display: flex; /* Menggunakan flexbox untuk menata tombol pilihan */
     justify-content: center; /* Menengahkan tombol secara horizontal */
     align-items: center; /* Menengahkan tombol secara vertikal */
+<<<<<<< Updated upstream
     gap: 20px; /* Memberikan jarak antar tombol */
+=======
+    gap: 20px; /* Jarak antar tombol */
+    z-index: 2;
+>>>>>>> Stashed changes
 }
 
 .options button {
@@ -73,8 +87,14 @@ section {
     margin: 10px; /* Margin di sekitar tombol */
     font-size: 1.2rem; /* Ukuran font tombol */
     border-radius: 8px; /* Membuat ujung tombol melengkung */
+<<<<<<< Updated upstream
     cursor: pointer; /* Mengubah kursor menjadi pointer saat mouse berada di atas tombol */
     transition: background-color 0.3s ease; /* Efek transisi saat background berubah */
+=======
+    cursor: pointer; /* Mengubah kursor saat hover menjadi pointer */
+    transition: background-color 0.3s ease; /* Efek transisi pada perubahan warna */
+    z-index: 2;
+>>>>>>> Stashed changes
 }
 
 .options button:hover {
@@ -269,3 +289,149 @@ button.dark:hover {
     background-color: #fce4ec; /* Warna latar belakang tombol berubah menjadi pink lembut saat hover */
     color: #000000; /* Warna teks berubah menjadi hitam saat hover */
 }
+<<<<<<< Updated upstream
+=======
+
+.profile-picture {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    margin-bottom: 10px;
+    object-fit: cover;
+    background-color: #f0f0f0; /* Placeholder background color */
+}
+
+.profile-info button {
+    background-color: #000;
+    color: #fce4ec;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-info button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-actions button {
+    background-color: #000;
+    color: #fce4ec;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-actions button:hover {
+    background-color: #fce4ec;
+    color: #000;
+}
+
+#bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0; /* Pastikan tetap di belakang, tetapi di atas latar belakang */
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(186, 227, 255, 0.7), rgba(218, 112, 214, 0.5), rgba(255, 182, 193, 0.3)); /* Gradasi warna fatamorgana */
+    border-radius: 50%;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.315), inset 0 5px 10px rgba(255, 255, 255, 0.5); /* Bayangan untuk efek 3D */
+    animation: bubble-animation 10s linear infinite;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+@keyframes bubble-animation {
+    0% {
+        transform: translateY(0) scale(0.9) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.1) rotate(45deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.3) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* Untuk tablet dan desktop kecil */
+@media (max-width: 992px) {
+    .options, .subject-buttons {
+        flex-direction: column; /* Menyusun tombol secara vertikal */
+        gap: 10px; /* Mengurangi jarak antar elemen */
+    }
+    
+    .welcome-message h2 {
+        font-size: 2rem; /* Mengurangi ukuran font */
+    }
+    
+    .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
+        padding: 10px 20px; /* Menyesuaikan padding untuk layar lebih kecil */
+        font-size: 1rem; /* Ukuran font lebih kecil */
+    }
+}
+
+/* Untuk perangkat mobile */
+@media (max-width: 576px) {
+    .heart-icon {
+        width: 60px; /* Mengubah ukuran ikon menjadi lebih kecil */
+        height: 60px;
+    }
+    
+    .logo-container h1 {
+        font-size: 2rem; /* Mengubah ukuran judul menjadi lebih kecil */
+    }
+    
+    .welcome-message h2 {
+        font-size: 1.8rem; /* Mengurangi ukuran font */
+    }
+    
+    iframe {
+        width: 100%; /* Menjadikan iframe responsif */
+        height: auto;
+    }
+
+    .options, .subject-buttons {
+        width: 100%; /* Tombol melebar penuh */
+    }
+    
+    .submit-button, .restart-button, .subject-buttons button, .back-to-home button {
+        width: 100%; /* Tombol mengambil lebar penuh */
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
+    }
+    
+    .description {
+        padding: 10px; /* Mengurangi padding pada layar kecil */
+    }
+}
+
+/* Styling for Account Settings */
+>>>>>>> Stashed changes

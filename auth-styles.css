@@ -1,0 +1,289 @@
+/* General Styling */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #000000;
+    color: #fce4ec;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-container img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Authentication Section */
+#auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+    min-height: calc(100vh - [tinggi header] - [tinggi footer]);
+}
+
+.auth-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 80%;
+    z-index: 2;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Tabs Styling */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #ffffff; /* Warna latar belakang default tombol */
+    color: #000000; /* Warna teks default */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    font-size: 1rem;
+    border-bottom: 2px solid transparent; /* Border bawah transparan */
+    border-radius: 6px 6px 0 0; /* Sudut atas membulat */
+}
+
+.tabs button.active {
+    background-color: #ffffff; /* Warna latar belakang tombol aktif */
+    color: #000000; /* Warna teks tombol aktif */
+    border-bottom: 4px solid #fce4ec; /* Border bawah hitam untuk menandai tombol aktif */
+    font-weight: bold; /* Teks tebal untuk tombol aktif */
+}
+
+.tabs button:not(.active):hover {
+    background-color: #d0d0d0; /* Warna saat hover */
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.auth-button {
+    background-color: #000000;
+    color: #fce4ec;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.auth-button:hover {
+    background-color: #fce4ec;
+    color: #000000;
+}
+
+.oauth-container {
+    margin-top: 20px;
+}
+
+.oauth-container p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.oauth-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    width: calc(50% - 10px);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+}
+
+.oauth-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.oauth-button:hover {
+    background-color: #fce4ec;
+    border-color: #000000;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #000000;
+    color: #fce4ec;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-top: auto;
+}
+
+#bubble-container-auth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0; /* Bubble di belakang elemen lainnya */
+}
+
+.bubble-auth {
+    position: absolute;
+    bottom: -50px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(173, 216, 230, 0.7), rgba(255, 182, 193, 0.5)); /* Gradasi warna fatamorgana */
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 5px 10px rgba(255, 255, 255, 0.5);
+    animation: bubble-animation-auth 12s linear infinite;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 0;
+}
+
+.bubble-auth.heart {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 105, 180, 0.7), rgba(255, 182, 193, 0.5));
+    clip-path:circle (50% 0%, 100% 38%, 82% 100%, 50% 75%, 18% 100%, 0% 38%);
+}
+
+@keyframes bubble-animation-auth {
+    0% {
+        transform: translateY(0) scale(0.9) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50vh) scale(1.1) rotate(20deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.3) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+/* Media Query untuk tablet dan desktop kecil */
+@media (max-width: 992px) {
+    .auth-container {
+        max-width: 400px;
+    }
+
+    .tabs button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .form-container input {
+        font-size: 1rem;
+    }
+
+    .auth-button {
+        font-size: 1.1rem;
+    }
+
+    .oauth-button {
+        font-size: 1rem;
+    }
+}
+
+/* Media Query untuk perangkat mobile */
+@media (max-width: 576px) {
+    .auth-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .tabs button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .form-container input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .auth-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .oauth-button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .logo-container img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .form-container h2 {
+        font-size: 1.4rem;
+    }
+}
