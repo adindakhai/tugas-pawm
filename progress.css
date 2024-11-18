@@ -55,6 +55,7 @@ section#progress h2 {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
 }
 
 .subject-progress {
@@ -62,6 +63,7 @@ section#progress h2 {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
+    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 30%;
     position: relative;
@@ -119,4 +121,73 @@ footer {
 .back-to-home button img {
     width: 24px;
     height: 24px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .logo-container h1 {
+        font-size: 2rem;
+    }
+
+    .heart-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    section#progress h2 {
+        font-size: 2rem;
+    }
+
+    .subject-progress {
+        max-width: 45%; /* Adjust to two columns */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .logo-container h1 {
+        font-size: 1.8rem;
+        margin-left: 0;
+    }
+
+    .heart-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    #progress-container.three-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subject-progress {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .subject-progress h3 {
+        font-size: 1.5rem;
+    }
+
+    .subject-progress p {
+        font-size: 1rem;
+    }
+
+    .progress-stats {
+        font-size: 1.2rem;
+    }
+
+    .back-to-home button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .back-to-home button img {
+        width: 20px;
+        height: 20px;
+    }
 }

@@ -125,7 +125,7 @@ function handleLogin(event) {
       } else if (error.code === 'auth/wrong-password') {
         alert("Incorrect password. Please try again.");
       } else {
-        alert(`Login failed: ${error.message}`);
+        alert(`Login failed, password is wrong.`);
       }
     });
 }
